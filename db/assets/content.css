@@ -1,0 +1,67 @@
+/* Warna latar belakang untuk toolbar */
+.tox-toolbar {
+    background-color: #f0f0f0;
+  }
+  
+  /* Warna teks untuk toolbar */
+  .tox-toolbar__primary {
+    color: #333;
+  }
+  
+  /* Warna border untuk toolbar */
+  .tox-toolbar__row {
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Warna background untuk editor */
+  .tox-tinymce {
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
+  
+  /* Warna teks untuk editor */
+  .tox-tinymce {
+    color: #333;
+  }
+  
+  /* Font family untuk editor */
+  .tox-tinymce {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Ukuran font untuk editor */
+  .tox-tinymce {
+    font-size: 14px;
+  }
+  
+  /* Warna latar belakang untuk content area */
+  .tox-editor-container {
+    background-color: #fff;
+  }
+  
+  /* Warna teks untuk content area */
+  .tox-editor-container {
+    color: #333;
+  }
+  
+  /* Justify Text */
+  .tox-toolbar__group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .tox-toolbar__group .tox-tbtn {
+    margin-right: 10px;
+  }
+  
+  /* Warna link */
+  .tox-editor-header a {
+    color: #007bff;
+  }
+  
+  .tox-editor-header a:hover {
+    color: #0056b3;
+  }
+  
