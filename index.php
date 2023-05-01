@@ -1,8 +1,18 @@
 <?php
 
   session_start();
+<<<<<<< HEAD
+  if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+  } else {
+      // handling ketika $_SESSION['user'] belum di-set
+      $user = '';
+  }
+
+=======
 
   $user = ( $_SESSION['user']);
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
   require "db/koneksi.php";
 
@@ -22,7 +32,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
+  <title>BERITA</title>
+=======
   <title>KEJAKSAAN</title>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
   <link rel="stylesheet" href="assets/style.css">
 
@@ -40,6 +54,17 @@
 
   <header>
 
+<<<<<<< HEAD
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent">
+
+          <div class="container-fluid">
+
+            <!-- <a class="navbar-brand" href="#">
+
+              <img src="assets/Image/icon.png" style="width:180px;" alt="">
+
+            </a> -->
+=======
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
 
           <div class="container-fluid">
@@ -49,6 +74,7 @@
               <img src="assets/Image/icon.png" style="width:180px;" alt="">
 
             </a>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -71,6 +97,8 @@
                   <a class="nav-link" href="Main/menu.php">Berita</a>
 
                 </li>
+<<<<<<< HEAD
+=======
 
 		            <li class="nav-item">
 
@@ -79,6 +107,7 @@
                 </li>
 
 
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
                 <li class="nav-item dropdown">
 
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,6 +118,17 @@
 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+<<<<<<< HEAD
+                    <li><a class="dropdown-item" href="bidang/politik.php">Politik</a></li>
+
+                    <li><a class="dropdown-item" href="bidang/olahraga.php">Olahraga</a></li>
+
+                    <li><a class="dropdown-item" href="bidang/artis.php">Artis</a></li>
+
+                    <li><a class="dropdown-item" href="bidang/international.php">International</a></li>
+
+                    <li><a class="dropdown-item" href="bidang/bisnis.php">Bisnis</a></li>
+=======
                     <li><a class="dropdown-item" href="bidang/pembinaan.php">Pembinaan</a></li>
 
                     <li><a class="dropdown-item" href="bidang/intelijen.php">Intelijen</a></li>
@@ -98,10 +138,33 @@
                     <li><a class="dropdown-item" href="bidang/khusus.php">Tindak Pidanan Khusus</a></li>
 
                     <li><a class="dropdown-item" href="bidang/perdata.php">Perdata dan Tata Usaha</a></li>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
                   </ul>
 
                 </li>
+<<<<<<< HEAD
+                <?php
+                if($user == "writer"){
+                  echo '<li class="nav-item">
+                  <a class="nav-link" href="profile/berita.php">Profile</a>
+                  </li>';
+                }
+                ?>
+
+                <?php
+                if($user == "admin"){
+                  echo '<li class="nav-item">
+                  <a class="nav-link" href="admin/menu.php">Manage</a>
+                  </li>';
+                }
+                ?>
+                <li class="nav-item">
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;">
+                  <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+=======
 
                 <li class="nav-item dropdown">
 
@@ -124,18 +187,26 @@
                     <li><a class="dropdown-item" href="profile/tugas.php">Tugas dan Wewenang</a></li>
 
                   </ul>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
                 </li>
 
               </ul>
 
               <div class="collapse navbar-collapse" style="justify-content:right;">
+<<<<<<< HEAD
+=======
 
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
               <ul class="navbar-nav">
 
                 <?php
 
+<<<<<<< HEAD
+                if($user!=''){
+=======
                 if($user=='admin'){
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
                   echo '<li class="nav-item">
 
@@ -163,6 +234,92 @@
 
         </nav>
 
+<<<<<<< HEAD
+</header>
+<div>
+  <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
+  <!-- <video autoplay loop muted style="width:100%">
+    <source src="assets/Image/bg.mp4">
+  </video> -->
+</div>
+<div class="container-fluid" style="width:100%; height:100%;">
+  <div class="row" style="margin-top:5%; margin-bottom:10%;" >
+    <div class="col-7">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/Image/img2.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/Image/img3.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/Image/img4.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
+    <div class="col" style="margin-top:4%;">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="assets/Image/img3.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="assets/Image/img5.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" style="width:100%;">
+<!-- <h1 style="text-align:center; padding: 3%; font-weight:bold;">BERITA</h1> -->
+=======
   </header>
 
 <div style="width:100%; text-align:center;">
@@ -170,6 +327,7 @@
 <img src="assets/Image/img1.png" style="width: 30%; margin-top:10%; margin-bottom:10%;" alt="">
 
 <h1 style="text-align:center; padding: 3%; font-weight:bold;">BERITA</h1>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
 <div class="row" style="justify-content:center; margin:0;">
 
@@ -183,17 +341,29 @@ if($i<3){
 
   echo '<div class="col-sm-3">
 
+<<<<<<< HEAD
+    <div class="card" style="min-height:15rem;">
+=======
     <div class="card" style="min-height:35rem;">
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
       <img src="db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
       <div class="card-body">
 
+<<<<<<< HEAD
+        <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>';
+
+        // <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
+
+      echo'</div>
+=======
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
 
         <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
 
       </div>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
       <button class="btn btn-dark">
 
@@ -210,12 +380,15 @@ if($i<3){
             echo'
 
             <div style="text-align:center;  margin:2%;">
+<<<<<<< HEAD
+=======
 
             <button class="btn btn-primary">
 
             <a href="db/edit.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Edit</a>
 
             </button>
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Hapus
             </button>
@@ -319,12 +492,30 @@ if($i<3){
   </div>
 
 </footer>
+<<<<<<< HEAD
+=======
 
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
 crossorigin="anonymous"></script>
+<<<<<<< HEAD
+<script>
+  var nav =document.querySelector('nav');
+  window.addEventListener('scroll',function(){
+    if(window.pageYOffset > 100){
+      nav.classList.remove('bg-transparent','navbar-dark');
+      nav.classList.add('bg-light','navbar-light');
+    }else{
+      nav.classList.remove('bg-light','navbar-light');
+      nav.classList.add('bg-transparent','navbar-dark');
+    }
+  })
+</script>
+=======
+>>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
 </body>
 
