@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
     session_start();
     require "koneksi.php";
     if (isset($_GET['judul'])) {
@@ -127,211 +126,6 @@ crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
-=======
-
-    session_start();
-
-    require "koneksi.php";
-    if (isset($_GET['judul'])) {
-      $judul = $_GET['judul'];    
-      $result = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
-    }
-    $username = $_SESSION['username'];
-
-    if($username == '' ){
-
-        header('location:../login.php');
-
-    }else{
-
-    if(isset($_POST["tambah"])){
-
-        $newjudul = $_POST["judul"];
-
-        $tanggal = $_POST["tanggal"];
-
-        $isi = $_POST["isi"];
-
-        $query = "UPDATE berita SET  Judul= '$newjudul' , Tanggal = '$tanggal', Isi = '$isi' WHERE Judul='$judul'";
-        mysqli_query($conn, $query);
-        echo "<script>
-
-            alert('Berhasil');
-
-            document.location.href='../index.php';    
-
-        </script>";
-
-    }
-
-?>
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>KEJAKSAAN</title>
-
-<link rel="stylesheet" href="../../assets/style.css">
-
-<script src="https://kit.fontawesome.com/5c90e171df.js" crossorigin="anonymous"></script>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-
-rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-
-crossorigin="anonymous">
-
-</head>
-
-<body>
-
-<header>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white" >
-
-<div class="container-fluid">
-
-<a class="navbar-brand" href="#">
-
-    <img src="../assets/Image/icon.png" style="width:180px;" alt="">
-
-</a>
-
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-
-    <span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
-
-    <ul class="navbar-nav">
-
-    <li class="nav-item">
-
-        <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
-
-    </li>
-
-    <li class="nav-item">
-
-        <a class="nav-link" href="../Main/menu.php">Berita</a>
-
-    </li>
-
-    <li class="nav-item dropdown">
-
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-        Bidang
-
-        </a>
-
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-        <li><a class="dropdown-item" href="../pembinaan.php">Pembinaan</a></li>
-
-        <li><a class="dropdown-item" href="../intelijen.php">Intelijen</a></li>
-
-        <li><a class="dropdown-item" href="../umum.php">Tindak Pidana Umum</a></li>
-
-        <li><a class="dropdown-item" href="../khusus.php">Tindak Pidanan Khusus</a></li>
-
-        <li><a class="dropdown-item" href="../perdata.php">Perdata dan Tata Usaha</a></li>
-
-        </ul>
-
-    </li>
-
-    <li class="nav-item dropdown">
-
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-        Profile
-
-        </a>
-
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-        <li><a class="dropdown-item" href="../../profile/struktur.php">Strutur Organisasi</a></li>
-
-        <li><a class="dropdown-item" href="../../profile/visimisi.php">Visi Misi</a></li>
-
-        <li><a class="dropdown-item" href="../../profile/perintah.php">Perintah Harian</a></li>
-
-        <li><a class="dropdown-item" href="../../profile/doktrin.php">Doktrin</a></li>
-
-        <li><a class="dropdown-item" href="../../profile/tugas.php">Tugas dan Wewenang</a></li>
-
-        </ul>
-
-    </li>
-
-    </ul>
-</div>
-
-</div>
-
-</nav>
-
-</header>
-
-<body>
-
-<div class="container">
-
-    <h1 style="text-align:center; margin-bottom:5px;">Edit Data</h1>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-
-    <?php
-
-    while($row=mysqli_fetch_assoc($result)){
-
-    echo'Judul
-
-    <input type="text" name="judul"></input>
-
-    <br>
-
-    Tanggal
-
-    <input type="date" name="tanggal"></input>
-
-    <br>
-
-    Isi
-
-    <textarea name="isi" style="width:100%;" rows="40" id="isi">'.$row["Isi"].'</textarea>';
-
-    };?>
-
-        <br>
-
-        <button class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right;">Upload</button>
-
-    </form>
-
-<?php }?>
-
-</div>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="preconnect" href="https://fonts.gstatic.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
-
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 <footer>
 
   <div class="footers container-fluid" style="padding-left:50px; padding-bottom:10%;">
@@ -340,11 +134,7 @@ crossorigin="anonymous">
 
       <div class="col-sm-5">
 
-<<<<<<< HEAD
         <img src="../../assets/Image/icon.png" style="width:250px;" alt="">
-=======
-        <img src="../assets/Image/icon.png" style="width:250px;" alt="">
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
         <br>
 
@@ -387,7 +177,6 @@ crossorigin="anonymous">
   </div>
 
 </footer>
-<<<<<<< HEAD
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 crossorigin="anonymous"></script>
@@ -399,13 +188,4 @@ crossorigin="anonymous"></script>
             console.error( error );
         } );
 </script>
-=======
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-
-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-
-crossorigin="anonymous"></script>
-
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 </body>

@@ -3,7 +3,6 @@
     session_start();
 
     require "koneksi.php";
-<<<<<<< HEAD
     $username = $_SESSION['username'];
     $user = $_SESSION['user'];
 
@@ -12,16 +11,6 @@
         header('location:../sign/login.php');
 
     }else if($user == 'writer' ){
-=======
-
-    $username = $_SESSION['username'];
-
-    if($username == '' ){
-
-        header('location:../login.php');
-
-    }else{
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
     if(isset($_POST["tambah"])){
         if(isset($_POST['judul'])) { 
@@ -68,11 +57,7 @@
 
             // Simpan alamat gambar ke database
 
-<<<<<<< HEAD
             $query = "INSERT INTO artikel VALUES('', '$username' , '$judul', '$jenis','$target_file', '$tanggal', '$isi')";
-=======
-            $query = "INSERT INTO berita VALUES('', '$username' ,'$jenis','$target_file', '$judul', '$tanggal', '$isi')";
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
             if (mysqli_query($conn, $query)) {
 
@@ -214,14 +199,10 @@ crossorigin="anonymous">
 
         Isi
 
-<<<<<<< HEAD
         <!-- <div id="editor" >
             </div> -->
         <textarea name="isi" style="width:100%;" rows="40" id="editor"></textarea>
 
-=======
-        <textarea name="isi" style="width:100%;" rows="40" id="isi"></textarea>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
         <br>
 
@@ -297,7 +278,6 @@ crossorigin="anonymous">
 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
-<<<<<<< HEAD
 crossorigin="anonymous"></script> 
 <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 <script>
@@ -309,9 +289,3 @@ crossorigin="anonymous"></script> 
 </script>
 </body>
 </html>
-=======
-crossorigin="anonymous"></script>
-
-</body>
-
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f

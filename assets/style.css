@@ -8,11 +8,7 @@
   margin: 0;
 }
 
-<<<<<<< HEAD
 body{
-=======
-body {
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
     font-family: 'Quicksand',sans-serif;
     text-align: justify;
     margin: 0;
@@ -94,17 +90,10 @@ body {
   
 }
 .cardintro{
-<<<<<<< HEAD
   /* padding: 20% 50% 20% 5%; */
   text-align: center;
   font-size:x-large;
   /* background-color: white; */
-=======
-  padding: 25% 50% 15% 5%;
-  text-align: center;
-  font-size:x-large;
-  color: black;
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 }
 .cardinfo{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -145,11 +134,7 @@ aside{
   float: right;
   right:0;
   width: auto;
-<<<<<<< HEAD
   /* padding-left: 20px; */
-=======
-  padding-left: 20px;
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 }
 *{
   box-sizing: border-box;
@@ -347,7 +332,6 @@ ol {
 }
 .alamat li a:hover{
   color: aqua;
-<<<<<<< HEAD
 }
 /* .navbar-dark.bg-transparent .navbar-nav .nav-link {
   color: #fff;
@@ -357,6 +341,4 @@ header{
 }
 header.scrolled nav div ul li a{
   color: black;
-=======
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 }

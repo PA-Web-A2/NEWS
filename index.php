@@ -1,18 +1,14 @@
 <?php
 
   session_start();
-<<<<<<< HEAD
+
   if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-  } else {
-      // handling ketika $_SESSION['user'] belum di-set
-      $user = '';
-  }
+} else {
+    // handling ketika $_SESSION['user'] belum di-set
+    $user = '';
+}
 
-=======
-
-  $user = ( $_SESSION['user']);
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
   require "db/koneksi.php";
 
@@ -32,11 +28,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<<<<<<< HEAD
   <title>BERITA</title>
-=======
-  <title>KEJAKSAAN</title>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
   <link rel="stylesheet" href="assets/style.css">
 
@@ -54,7 +46,6 @@
 
   <header>
 
-<<<<<<< HEAD
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent">
 
           <div class="container-fluid">
@@ -64,17 +55,6 @@
               <img src="assets/Image/icon.png" style="width:180px;" alt="">
 
             </a> -->
-=======
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
-
-          <div class="container-fluid">
-
-            <a class="navbar-brand" href="#">
-
-              <img src="assets/Image/icon.png" style="width:180px;" alt="">
-
-            </a>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -97,17 +77,6 @@
                   <a class="nav-link" href="Main/menu.php">Berita</a>
 
                 </li>
-<<<<<<< HEAD
-=======
-
-		            <li class="nav-item">
-
-                  <a class="nav-link" href="pengumuman.php">Pengumuman</a>
-
-                </li>
-
-
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
                 <li class="nav-item dropdown">
 
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -118,7 +87,6 @@
 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-<<<<<<< HEAD
                     <li><a class="dropdown-item" href="bidang/politik.php">Politik</a></li>
 
                     <li><a class="dropdown-item" href="bidang/olahraga.php">Olahraga</a></li>
@@ -128,22 +96,10 @@
                     <li><a class="dropdown-item" href="bidang/international.php">International</a></li>
 
                     <li><a class="dropdown-item" href="bidang/bisnis.php">Bisnis</a></li>
-=======
-                    <li><a class="dropdown-item" href="bidang/pembinaan.php">Pembinaan</a></li>
-
-                    <li><a class="dropdown-item" href="bidang/intelijen.php">Intelijen</a></li>
-
-                    <li><a class="dropdown-item" href="bidang/umum.php">Tindak Pidana Umum</a></li>
-
-                    <li><a class="dropdown-item" href="bidang/khusus.php">Tindak Pidanan Khusus</a></li>
-
-                    <li><a class="dropdown-item" href="bidang/perdata.php">Perdata dan Tata Usaha</a></li>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
                   </ul>
 
                 </li>
-<<<<<<< HEAD
                 <?php
                 if($user == "writer"){
                   echo '<li class="nav-item">
@@ -164,49 +120,17 @@
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;">
                   <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
-=======
-
-                <li class="nav-item dropdown">
-
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                    Profile
-
-                  </a>
-
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" href="profile/struktur.php">Strutur Organisasi</a></li>
-
-                    <li><a class="dropdown-item" href="profile/visimisi.php">Visi Misi</a></li>
-
-                    <li><a class="dropdown-item" href="profile/perintah.php">Perintah Harian</a></li>
-
-                    <li><a class="dropdown-item" href="profile/doktrin.php">Doktrin</a></li>
-
-                    <li><a class="dropdown-item" href="profile/tugas.php">Tugas dan Wewenang</a></li>
-
-                  </ul>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
                 </li>
 
               </ul>
 
               <div class="collapse navbar-collapse" style="justify-content:right;">
-<<<<<<< HEAD
-=======
-
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
               <ul class="navbar-nav">
 
                 <?php
 
-<<<<<<< HEAD
                 if($user!=''){
-=======
-                if($user=='admin'){
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
                   echo '<li class="nav-item">
 
@@ -234,7 +158,6 @@
 
         </nav>
 
-<<<<<<< HEAD
 </header>
 <div>
   <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
@@ -319,15 +242,6 @@
 
 <div class="container-fluid" style="width:100%;">
 <!-- <h1 style="text-align:center; padding: 3%; font-weight:bold;">BERITA</h1> -->
-=======
-  </header>
-
-<div style="width:100%; text-align:center;">
-
-<img src="assets/Image/img1.png" style="width: 30%; margin-top:10%; margin-bottom:10%;" alt="">
-
-<h1 style="text-align:center; padding: 3%; font-weight:bold;">BERITA</h1>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
 <div class="row" style="justify-content:center; margin:0;">
 
@@ -341,29 +255,17 @@ if($i<3){
 
   echo '<div class="col-sm-3">
 
-<<<<<<< HEAD
     <div class="card" style="min-height:15rem;">
-=======
-    <div class="card" style="min-height:35rem;">
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
       <img src="db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
       <div class="card-body">
 
-<<<<<<< HEAD
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>';
 
         // <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
 
       echo'</div>
-=======
-        <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
-
-        <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
-
-      </div>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
       <button class="btn btn-dark">
 
@@ -380,15 +282,6 @@ if($i<3){
             echo'
 
             <div style="text-align:center;  margin:2%;">
-<<<<<<< HEAD
-=======
-
-            <button class="btn btn-primary">
-
-            <a href="db/edit.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Edit</a>
-
-            </button>
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Hapus
             </button>
@@ -492,16 +385,11 @@ if($i<3){
   </div>
 
 </footer>
-<<<<<<< HEAD
-=======
-
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
 crossorigin="anonymous"></script>
-<<<<<<< HEAD
 <script>
   var nav =document.querySelector('nav');
   window.addEventListener('scroll',function(){
@@ -514,8 +402,6 @@ crossorigin="anonymous"></script>
     }
   })
 </script>
-=======
->>>>>>> e0d4a7df93e0f6a68cc82ef50ffca82bfeed992f
 
 </body>
 
