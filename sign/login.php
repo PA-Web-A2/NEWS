@@ -26,19 +26,25 @@
 
             }
 
-            if($username == $row["Username"] && $password == $row["Pass"] && $selectedOption == $row["Role"]){
-              if($selectedOption=="admin"){
+            if($username == $row["Username"] && $password == $row["Pass"]){
+              if($row["Role"]=="admin"){
                 $_SESSION['username'] = $row["ID_Admin"];
 
                 $_SESSION['user'] = $row["Role"];
   
                 header('Location: ../admin/menu.php');
-              }else if($selectedOption=="writer"){
+              }else if($row["Role"]=="writer"){
                 $_SESSION['username'] = $row["ID_Admin"];
   
                 $_SESSION['user'] = $row["Role"];
   
                 header('Location: ../profile/berita.php');
+              }else if ($row["Role"]=="user"){
+                $_SESSION['username'] = $row["ID_Admin"];
+  
+                $_SESSION['user'] = $row["Role"];
+  
+                header('Location: ../index.php');
               }
             }
             // else{
@@ -85,7 +91,7 @@
 
   <header>
 
-      <nav class="navbar navbar-expand-md navbar-light bg-light" >
+      <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" >
 
         <div class="container-fluid">
 
@@ -126,7 +132,7 @@
 
   </header>
 
-  <div style="padding:5%; display: flex; justify-content: center; align-items: center; ">
+  <div class="login">
 
   <div class="card mb-3" style="max-width: 50%;">
 
@@ -160,23 +166,13 @@
           
           <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
-
-        <div class="input-group mb-2">
-          <label class="input-group-text" for="inputGroupSelect01">Role</label>
-          <select name="role" class="form-select" id="inputGroupSelect01">
-          <option value="None">None</option>
-          <option value="admin">Admin</option>
-          <option value="writer">Writer</option>
-          <!-- <option value="">User</option> -->
-          </select>
-        </div>
         
         <div id="emailHelp" class="form-text" style="font-weight:bold;">Belum punya akun? <a href="signup.php">Sign Up</a></div>
 
-        <div style="margin-top:5px;">
-          <button type="submit" name="submit" class="btn btn-primary" style="float:right;">Sign in</button>
+        <div style="margin-top:5px; float:right; justify-content:center;">
+          <button class="btn btn-dark" style="margin-right:10px;"><a style="text-decoration:None; color:white;" href="../index.php">Kembali</a></button>
+          <button type="submit" name="submit" class="btn btn-primary">Sign in</button>
         
-          <button class="btn btn-dark" style="float:right; margin-right:10px;"><a style="text-decoration:None; color:white;" href="../index.php">Kembali</a></button>
         
         </div>
           

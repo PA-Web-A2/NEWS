@@ -50,7 +50,7 @@
     if (isset($_GET['judul'])) {
       
       $judul = $_GET['judul'];
-      $result = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
+      $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Judul ='$judul'");
     }
 
   ?>

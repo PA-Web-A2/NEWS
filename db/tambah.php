@@ -13,7 +13,7 @@
     }else if($user == 'writer' ){
 
     if(isset($_POST["tambah"])){
-        if(isset($_POST['judul'])) { 
+        if(isset($_POST['jenis'])) { 
 
             $jenis = $_POST["jenis"];
 
@@ -99,7 +99,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KEJAKSAAN</title>
+<title>BERITA</title>
 
 <link rel="stylesheet" href="../assets/style.css">
 
@@ -119,43 +119,39 @@ crossorigin="anonymous">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white" >
 <div class="container-fluid">
-<a class="navbar-brand" href="#">
-    <img src="../../assets/Image/icon.png" style="width:180px;" alt="">
-</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
     <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="../../index.php">Beranda</a>
+        <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="../Main/menu.php">Berita</a>
     </li>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Bidang
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="../bidang/pembinaan.php">Pembinaan</a></li>
-        <li><a class="dropdown-item" href="../bidang/intelijen.php">Intelijen</a></li>
-        <li><a class="dropdown-item" href="../bidang/umum.php">Tindak Pidana Umum</a></li>
-        <li><a class="dropdown-item" href="../bidang/khusus.php">Tindak Pidanan Khusus</a></li>
-        <li><a class="dropdown-item" href="../bidang/perdata.php">Perdata dan Tata Usaha</a></li>
-        </ul>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Profile
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="../profile/struktur.php">Strutur Organisasi</a></li>
-        <li><a class="dropdown-item" href="../profile/visimisi.php">Visi Misi</a></li>
-        <li><a class="dropdown-item" href="../profile/perintah.php">Perintah Harian</a></li>
-        <li><a class="dropdown-item" href="../profile/doktrin.php">Doktrin</a></li>
-        <li><a class="dropdown-item" href="../profile/tugas.php">Tugas dan Wewenang</a></li>
-        </ul>
+
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+    Bidang
+
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+    <li><a class="dropdown-item" href="bidang/politik.php">Politik</a></li>
+
+    <li><a class="dropdown-item" href="bidang/olahraga.php">Olahraga</a></li>
+
+    <li><a class="dropdown-item" href="bidang/artis.php">Artis</a></li>
+
+    <li><a class="dropdown-item" href="bidang/international.php">International</a></li>
+
+    <li><a class="dropdown-item" href="bidang/bisnis.php">Bisnis</a></li>
+
+    </ul>
+
     </li>
     </ul>
 </div>
@@ -179,12 +175,18 @@ crossorigin="anonymous">
 
         <input type="text" name="judul">
         <br>
-	Jenis
+	    Jenis
         <select name="jenis">
 
-            <option value="berita">berita</option>
+            <option value="international">International</option>
 
-            <option value="pengumuman">pengumuman</option>
+            <option value="politik">Politik</option>
+
+            <option value="olahraga">Olahraga</option>
+
+            <option value="artis">Artis</option>
+
+            <option value="bisnis">Bisnis</option>    
 
         </select>
 

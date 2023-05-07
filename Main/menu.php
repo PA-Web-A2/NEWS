@@ -1,10 +1,17 @@
 <?php
 
 session_start();
-$user = ( $_SESSION['user']);
+
+if (isset($_SESSION['user'])) {
+  $user = $_SESSION['user'];
+} else {
+  // handling ketika $_SESSION['user'] belum di-set
+  $_SESSION['user'] = '';
+}
+
 require "../db/koneksi.php";
 
-$result = mysqli_query($conn,"SELECT*FROM berita WHERE Jenis='berita'");
+$results = mysqli_query($conn,"SELECT * FROM berita  ORDER BY ID_Berita DESC");
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +26,7 @@ $result = mysqli_query($conn,"SELECT*FROM berita WHERE Jenis='berita'");
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KEJAKSAAN</title>
+  <title>BERITA</title>
 
   <link rel="stylesheet" href="../assets/style.css">
 
@@ -35,91 +42,11 @@ $result = mysqli_query($conn,"SELECT*FROM berita WHERE Jenis='berita'");
 
 <body>
 
-  <header>
-
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
-
-          <div class="container-fluid">
-
-            <a class="navbar-brand" href="#">
-
-              <img src="../assets/Image/icon.png" style="width:180px;" alt="">
-
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-
-              <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
-
-              <ul class="navbar-nav">
-
-                <li class="nav-item">
-
-                  <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                  <a class="nav-link active" href="#">Berita</a>
-
-                </li>
-
-                  <li class="nav-item dropdown">
-
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                    Bidang
-
-                  </a>
-
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" href="../bidang/pembinaan.php">Pembinaan</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/intelijen.php">Intelijen</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/umum.php">Tindak Pidana Umum</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/khusus.php">Tindak Pidanan Khusus</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/perdata.php">Perdata dan Tata Usaha</a></li>
-
-                  </ul>
-
-                </li>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-            <div class="collapse navbar-collapse" style="justify-content:right;">
-
-            <ul class="navbar-nav">
-              <?php
-              if($user =="writer"){?>
-
-              <li class="nav-item">
-
-                    <a class="nav-link active" aria-current="page" href="../db/tambah.php">Create</a>
-
-                </li>
-              <?php }?>
-            </ul>
-
-            </div>
-
-          </div>
-
-        </nav>
-
-  </header>
+  <?php 
+  include 'navbar.php';?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+  crossorigin="anonymous"></script>
 
 <div style="width:100%;">
 
@@ -133,7 +60,7 @@ $result = mysqli_query($conn,"SELECT*FROM berita WHERE Jenis='berita'");
 
 <?php
 
-while($row=mysqli_fetch_assoc($result)){
+while($row=mysqli_fetch_assoc($results)){
 
     echo '<div class="col-sm-3" style="margin:1.5%;">
 
@@ -145,7 +72,7 @@ while($row=mysqli_fetch_assoc($result)){
 
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
 
-        <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
+        <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 3, 30)).'</h6>
 
         </div>
         <button class="btn btn-dark">
@@ -153,7 +80,7 @@ while($row=mysqli_fetch_assoc($result)){
         </button>
         '?> 
         <?php 
-            if($user == 'admin' ){
+            if($_SESSION['user'] == 'admin' ){
               echo'
               <div style="text-align:center; margin:2%;">
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -182,11 +109,10 @@ while($row=mysqli_fetch_assoc($result)){
               </div>
             </div>';
             }
-        echo'
-        </div>
-        </div>';
-}
-?>
+            echo'</div>
+            </div>';
+            }
+            ?>
 
 </div>
 
@@ -198,55 +124,13 @@ while($row=mysqli_fetch_assoc($result)){
 
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
 <footer>
-
-  <div class="footers container-fluid" style="padding-left:50px; padding-bottom:10%;">
-
-    <div class="row justify-content-center">
-
-      <div class="col-sm-5">
-
-        <img src="../assets/Image/icon.png" style="width:250px;" alt="">
-
-        <br>
-
-        <a style="font-size:medium;">Puji syukur kita panjatkan Kehadirat Tuhan Yang Maha Esa sehubungan dengan telah berfungsinya Website Kejaksaan Tinggi Balikpapan yang merupakan salah satu langkah upaya penerapan teknologi informasi menuju reformasi birokrasi kejaksaan untuk Indonesia lebih maju.</a>
-
-      </div>
-
-      <div class="col-md-3">
-
-        <h6 style="font-weight: bold; font-size:larger;">Kontak Kami</h6>
-
-        <ul class="social-icons">
-
-          <li><a class="instagram" href="https://www.instagram.com/kejari.balikpapan/"><i class="fa fa-instagram"></i></a></li>
-
-          <li><a class="twitter" href="https://twitter.com/KN_Balikpapan"><i class="fa fa-twitter"></i></a></li>
-
-          <li><a class="facebook" href=" https://www.facebook.com/kejari.balikpapan/?_rdc=1&_rdr"><i class="fa fa-facebook"></i></a></li>
-
-          <li><a class="youtube" href="https://www.youtube.com/@kejari.balikpapan848"><i class="fa fa-youtube"></i></a></li>   
-
-        </ul>
-
-      </div>
-
-      <div class="col-md-3">
-
-        <h6 style="font-weight: bold; font-size:larger;">Alamat</h6>
-
-        <ul class="footer-links">
-
-          <li><a href="https://goo.gl/maps/HHyHtfyVDYx34YFi8" style="text-decoration:none; color:black;"> Jln.Jendral Sudirman No.70 Kota Balikpapan, Kalimantan Timur</a></li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="footers">
+  <a href="#"><i class="fa fa-facebook"></i></a>
+  <a href="#"><i class="fa fa-instagram"></i></a>
+  <a href="#"><i class="fa fa-youtube"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <div class="cp">ENJOY YOUR NEWS</div>
+</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 

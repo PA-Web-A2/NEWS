@@ -37,7 +37,7 @@
 while($row=mysqli_fetch_assoc($result)){
     echo '<div class="col-sm-3" style="margin-right:1.5vw;">
     <div class="card" style="min-height:35rem;">
-        <img src="'.$row["Gambar"].'" class="card-img-top" alt="...">
+        <img src="../db/'.$row["Gambar"].'" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
         <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
@@ -90,55 +90,13 @@ while($row=mysqli_fetch_assoc($result)){
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
 <footer>
-
-  <div class="footers container-fluid" style="padding-left:50px; padding-bottom:10%;">
-
-    <div class="row justify-content-center">
-
-      <div class="col-sm-5">
-
-        <img src="../assets/Image/icon.png" style="width:250px;" alt="">
-
-        <br>
-
-        <a style="font-size:medium;">Puji syukur kita panjatkan Kehadirat Tuhan Yang Maha Esa sehubungan dengan telah berfungsinya Website Kejaksaan Tinggi Balikpapan yang merupakan salah satu langkah upaya penerapan teknologi informasi menuju reformasi birokrasi kejaksaan untuk Indonesia lebih maju.</a>
-
-      </div>
-
-      <div class="col-md-3">
-
-        <h6 style="font-weight: bold; font-size:larger;">Kontak Kami</h6>
-
-        <ul class="social-icons">
-
-          <li><a class="instagram" href="https://www.instagram.com/kejari.balikpapan/"><i class="fa fa-instagram"></i></a></li>
-
-          <li><a class="twitter" href="https://twitter.com/KN_Balikpapan"><i class="fa fa-twitter"></i></a></li>
-
-          <li><a class="facebook" href=" https://www.facebook.com/kejari.balikpapan/?_rdc=1&_rdr"><i class="fa fa-facebook"></i></a></li>
-
-          <li><a class="youtube" href="https://www.youtube.com/@kejari.balikpapan848"><i class="fa fa-youtube"></i></a></li>   
-
-        </ul>
-
-      </div>
-
-      <div class="col-md-3">
-
-        <h6 style="font-weight: bold; font-size:larger;">Alamat</h6>
-
-        <ul class="footer-links">
-
-          <li><a href="https://goo.gl/maps/HHyHtfyVDYx34YFi8" style="text-decoration:none; color:black;"> Jln.Jendral Sudirman No.70 Kota Balikpapan, Kalimantan Timur</a></li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="footers">
+  <a href="#"><i class="fa fa-facebook"></i></a>
+  <a href="#"><i class="fa fa-instagram"></i></a>
+  <a href="#"><i class="fa fa-youtube"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <div class="cp">ENJOY YOUR NEWS</div>
+</div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 

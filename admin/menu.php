@@ -4,7 +4,7 @@ session_start();
 $user = $_SESSION['user'];
 require "../db/koneksi.php";
 
-$result = mysqli_query($conn,"SELECT*FROM artikel WHERE Jenis='berita'");
+$result = mysqli_query($conn,"SELECT*FROM artikel ORDER BY ID_Berita ASC");
 
 ?>
 <!DOCTYPE html>
@@ -40,12 +40,6 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Jenis='berita'");
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
 
           <div class="container-fluid">
-
-            <a class="navbar-brand" href="#">
-
-              <img src="../assets/Image/icon.png" style="width:180px;" alt="">
-
-            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -102,20 +96,6 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Jenis='berita'");
                 </li>
 
               </ul>
-
-            </div>
-
-            <div class="collapse navbar-collapse" style="justify-content:right;">
-
-            <ul class="navbar-nav">
-
-              <li class="nav-item">
-
-                    <a class="nav-link active" aria-current="page" href="../db/tambah.php">Create</a>
-
-                </li>
-
-            </ul>
 
             </div>
 
@@ -182,7 +162,7 @@ while($row=mysqli_fetch_assoc($result)){
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                   <button class="btn btn-danger">
 
-                  <a href="../db/hapus.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Hapus</a>
+                  <a href="hapus.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Hapus</a>
       
                   </button>
                 </div>

@@ -22,7 +22,7 @@
             }
         echo "<script>
             alert('Berhasil');
-            document.location.href='../../index.php';    
+            document.location.href='../index.php';    
         </script>";
     }
 ?>
@@ -67,8 +67,9 @@ crossorigin="anonymous">
         <li><a class="dropdown-item" href="../umum.php">Tindak Pidana Umum</a></li>
         <li><a class="dropdown-item" href="../khusus.php">Tindak Pidanan Khusus</a></li>
         <li><a class="dropdown-item" href="../perdata.php">Perdata dan Tata Usaha</a></li>
-        </ul>
+    </ul>
     </li>
+    </ul>
     <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Profile
@@ -81,7 +82,6 @@ crossorigin="anonymous">
         <li><a class="dropdown-item" href="../../profile/tugas.php">Tugas dan Wewenang</a></li>
         </ul>
     </li> -->
-    </ul>
     <!-- <div class="collapse navbar-collapse" style="justify-content:right;">
     <ul class="navbar-nav">
     <li class="nav-item">
@@ -105,11 +105,15 @@ crossorigin="anonymous">
     <br>
     Pilih
     <select name="judul">
-        <option value="pembinaan">Pembinaan</option>
-        <option value="intelijen">Intelijen</option>
-        <option value="umum">Pidana Umum</option>
-        <option value="khusus">Pidana Khusus</option>
-        <option value="perdata">Perdata dan TU</option>
+    <option value="international">International</option>
+
+    <option value="politik">Politik</option>
+
+    <option value="olahraga">Olahraga</option>
+
+    <option value="artis">Artis</option>
+
+    <option value="bisnis">Bisnis</option>  
     </select>
     <br>
     Tanggal

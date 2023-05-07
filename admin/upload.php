@@ -20,11 +20,11 @@
 
         $gambar = $row["Gambar"];
 
-        $tanggal = $row[""];
+        $tanggal = $row["Waktu"];
 
-        $isi = $_POST["isi"];
+        $isi = $row["Isi"];
         
-        $query = "INSERT INTO berita VALUES('', '$username' ,'$jenis','$gambar', '$judul', '$tanggal', '$isi')";
+        $query = "INSERT INTO berita VALUES('', '$username' ,'$jenis','$gambar', '$newjudul', '$tanggal', '$isi')";
         mysqli_query($conn, $query);
         echo "<script>
 

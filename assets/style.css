@@ -342,3 +342,13 @@ header{
 header.scrolled nav div ul li a{
   color: black;
 }
+.login{
+  background-image: url("Image/bg2.jpg");
+  height: 100vh;
+  background-size: cover;
+  padding:5%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+
+}

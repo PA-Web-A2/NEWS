@@ -67,7 +67,7 @@
 
   <header>
 
-      <nav class="navbar navbar-expand-md navbar-light bg-light" >
+      <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" >
 
         <div class="container-fluid">
 
@@ -89,12 +89,12 @@
 
               <li class="nav-item">
 
-                <a class="nav-link" aria-current="page" href="#">Sign In</a>
+                <a class="nav-link" aria-current="page" href="login.php">Sign In</a>
 
               </li>
               <li class="nav-item">
 
-                <a class="nav-link active" aria-current="page" href="signup.php">Sign Up</a>
+                <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
 
               </li>
 
@@ -108,7 +108,7 @@
 
   </header>
 
-  <div style="padding:5%; display: flex; justify-content: center; align-items: center; ">
+  <div class="login">
 
   <div class="card mb-3" style="max-width: 50%;">
 
@@ -149,7 +149,7 @@
           <option value="None">None</option>
           <option value="admin">Admin</option>
           <option value="writer">Writer</option>
-          <!-- <option value="">User</option> -->
+          <option value="user">User</option>
           </select>
         </div>
         
