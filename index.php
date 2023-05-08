@@ -124,7 +124,7 @@
                   <div>
                     <ul class="dropdown-menu" id="searchDropdown">
                     <li class="dropdown-item">
-                      <a href="Main/berita.php?judul=${results[i].judul}">${results[i].judul}</a>
+                      <a href="Main/berita.php?judul=${results[i]}">${results[i].judul}</a>
                     </li>
                     </ul>
                   </div>  

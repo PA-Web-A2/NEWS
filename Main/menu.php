@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+require "../db/koneksi.php";
 if (isset($_SESSION['user'])) {
   $user = $_SESSION['user'];
 } else {
@@ -9,9 +9,23 @@ if (isset($_SESSION['user'])) {
   $_SESSION['user'] = '';
 }
 
-require "../db/koneksi.php";
+if (isset($_POST['sorting'])) {
+  $sort = $_POST['sorting'];
 
-$results = mysqli_query($conn,"SELECT * FROM berita  ORDER BY ID_Berita DESC");
+  if (isset($_POST['save'])) {
+    if ($sort == "Judul") {
+      $results = mysqli_query($conn, "SELECT * FROM berita ORDER BY Judul ASC");
+    } else if ($sort == "terlama") {
+      $results = mysqli_query($conn, "SELECT * FROM berita ORDER BY ID_Berita ASC");
+    }
+    else {
+      $results = mysqli_query($conn, "SELECT * FROM berita ORDER BY ID_Berita DESC");
+    }
+  }
+} else {
+  $results = mysqli_query($conn, "SELECT * FROM berita ORDER BY ID_Berita DESC");
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -55,9 +69,39 @@ $results = mysqli_query($conn,"SELECT * FROM berita  ORDER BY ID_Berita DESC");
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
 
 <h1 style="text-align:center; padding: 13% 0 5% 0; font-weight:bold;">SEMUA BERITA</h1>
+<div class="container-fluid">
+  <button type="button" style="margin:0 0 0 10%; width:auto;" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Sorting
+  </button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sorting berdasarkan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body">
+            <select name="sorting" class="form-select" id="inputGroupSelect01">
+            <option value="None">None</option>
+            <option value="Judul">Judul</option>
+            <option value="terbaru">Terbaru</option>
+            <option value="terlama">Terlama</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="save">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row" style="justify-content:center; margin:0;">
-
+  
 <?php
 
 while($row=mysqli_fetch_assoc($results)){

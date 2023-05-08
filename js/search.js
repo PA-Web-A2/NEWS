@@ -32,7 +32,7 @@ function search() {
     for (var i = 0; i < results.length; i++) {
       var resultItem = document.createElement("li");
       var resultLink = document.createElement("a");
-      resultLink.href = "../Main/berita.php?judul=" + encodeURIComponent(results[i]);
+      resultLink.href = "Main/berita.php?judul=" + encodeURIComponent(results[i]);
       resultLink.textContent = results[i];
       resultItem.appendChild(resultLink);
       dropdown.appendChild(resultItem);
