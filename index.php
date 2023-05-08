@@ -13,7 +13,6 @@
   require "db/koneksi.php";
 
   $result =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'politik' ORDER BY ID_Berita DESC LIMIT 3;");
-
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +33,10 @@
 
   <script src="https://kit.fontawesome.com/5c90e171df.js" crossorigin="anonymous"></script>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="js/search.js"></script>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
 
   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
@@ -56,11 +59,11 @@
 
             </a> -->
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
 
-            </button>
+            </button> -->
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
 
@@ -115,14 +118,19 @@
                   </li>';
                 }
                 ?>
-                <li class="nav-item">
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;">
-                  <button class="btn btn-outline-light" type="submit">Search</button>
+              <li class="nav-item">
+                <form class="d-flex" method="post">
+                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;" onkeyup="search()">
+                  <div>
+                    <ul class="dropdown-menu" id="searchDropdown">
+                    <li class="dropdown-item">
+                      <a href="Main/berita.php?judul=${results[i].judul}">${results[i].judul}</a>
+                    </li>
+                    </ul>
+                  </div>  
+                  <button name="cari" class="btn btn-outline-light" type="submit">Search</button>
                 </form>
-
-                </li>
-
+              </li>
               </ul>
 
               <div class="collapse navbar-collapse" style="justify-content:right;">
@@ -166,7 +174,7 @@
   <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
 </div> -->
 <div class="container-fluid" style="width:100%; height:100%;">
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -174,16 +182,18 @@
     </div>
     <div class="carousel-inner">
     <?php 
-    $carou = mysqli_query($conn, "SELECT * FROM berita WHERE Jenis = 'artis' ORDER BY ID_Berita DESC LIMIT 3;");
+    $carou = mysqli_query($conn, "SELECT * FROM berita WHERE Jenis = 'artis' ORDER BY ID_Berita ASC LIMIT 3;");
     $rows = mysqli_fetch_all($carou, MYSQLI_ASSOC);
 
     for ($i = 0; $i < count($rows); $i++) {
       echo '
-        <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">
-          <img src="db/' . $rows[$i]['Gambar'] . '" class="d-block w-100" alt="...">
+          <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">
+          <a href="Main/berita.php?judul='.$rows[$i]["Judul"].'">
+          <img src="db/' . $rows[$i]['Gambar'] . '" class="d-block w-100" alt="..." >
           <div class="carousel-caption d-none d-md-block">
             <h5>' . $rows[$i]["Judul"] . '</h5>
           </div>
+          </a>
         </div>
     ';
   }
@@ -213,7 +223,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">'.$row["Judul"].'</h5>
+              <h5 class="card-title"><a href="Main/berita.php?judul='.$row["Judul"].'" style="text-decoration:None; color:black;">'.$row["Judul"].'</a></h5>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
@@ -336,17 +346,21 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 crossorigin="anonymous"></script>
 <script>
   var nav =document.querySelector('nav');
+  var btn =document.querySelector('button');
   window.addEventListener('scroll',function(){
     if(window.pageYOffset > 100){
       nav.classList.remove('bg-transparent','navbar-dark');
-      nav.classList.add('bg-light','navbar-light');
+      nav.classList.add('bg-light','navbar-light','btn-outline-dark');
+      btn.classList.remove('btn-outline-light');
+      btn.classList.add('btn-outline-dark');
     }else{
-      nav.classList.remove('bg-light','navbar-light');
-      nav.classList.add('bg-transparent','navbar-dark');
+      nav.classList.remove('bg-light','navbar-light','btn-outline-dark');
+      nav.classList.add('bg-transparent','navbar-dark','btn-outline-light');
+      btn.classList.remove('btn-outline-dark');
+      btn.classList.add('btn-outline-light');
     }
   })
 </script>
-
 </body>
 
 </html>

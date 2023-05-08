@@ -91,7 +91,7 @@
 
   <header>
 
-      <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" >
+      <nav class="navbar fixed-top navbar-expand-md navbar-light bg-transparent" >
 
         <div class="container-fluid">
 

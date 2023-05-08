@@ -67,7 +67,7 @@
 
   <header>
 
-      <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" >
+      <nav class="navbar fixed-top navbar-expand-md navbar-light bg-transparent" >
 
         <div class="container-fluid">
 
@@ -155,10 +155,10 @@
         
         <div id="emailHelp" class="form-text" style="font-weight:bold;">Sudah punya akun? <a href="login.php">Sign In</a></div>
 
-        <div style="margin-top:5px;">
-          <button type="submit" name="submit" class="btn btn-primary" style="float:right;">Sign in</button>
-        
-          <button class="btn btn-dark" style="float:right; margin-right:10px;"><a style="text-decoration:None; color:white;" href="../index.php">Kembali</a></button>
+        <div style="margin-top:5px; float:right; ">
+          <button class="btn btn-dark" style=" margin-right:10px;"><a style="text-decoration:None; color:white;" href="../index.php">Kembali</a></button>
+          
+          <button type="submit" name="submit" class="btn btn-primary">Sign in</button>
         
         </div>
           

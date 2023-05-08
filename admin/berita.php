@@ -84,45 +84,7 @@
 
                 </li>
 
-                <li class="nav-item dropdown">
-
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                    Profile
-
-                  </a>
-
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" href="../profile/struktur.php">Strutur Organisasi</a></li>
-
-                    <li><a class="dropdown-item" href="../profile/visimisi.php">Visi Misi</a></li>
-
-                    <li><a class="dropdown-item" href="../profile/perintah.php">Perintah Harian</a></li>
-
-                    <li><a class="dropdown-item" href="../profile/doktrin.php">Doktrin</a></li>
-
-                    <li><a class="dropdown-item" href="../profile/tugas.php">Tugas dan Wewenang</a></li>
-
-                  </ul>
-
-                </li>
-
               </ul>
-
-            </div>
-
-            <div class="collapse navbar-collapse" style="justify-content:right;">
-
-            <ul class="navbar-nav">
-
-              <li class="nav-item">
-
-                    <a class="nav-link active" aria-current="page" href="login.php">Login</a>
-
-                </li>
-
-            </ul>
 
             </div>
 
