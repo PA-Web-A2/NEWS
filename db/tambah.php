@@ -191,11 +191,11 @@ crossorigin="anonymous">
         </select>
 
 
-        <br>
+        <!-- <br>
 
         Tanggal
 
-        <input type="date" name="tanggal">
+        <input type="date" name="tanggal"> -->
 
         <br>
 

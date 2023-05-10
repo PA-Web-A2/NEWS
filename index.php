@@ -49,7 +49,7 @@
 
   <header>
 
-      <nav class="navbar border fixed-top navbar-expand-lg navbar-dark bg-transparent">
+      <nav class="navbar border fixed-top navbar-expand-lg navbar-dark bg-dark">
 
           <div class="container-fluid">
 
@@ -174,7 +174,7 @@
   <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
 </div> -->
 <div class="container-fluid" style="width:100%; height:100%; text-align:center;">
-  <div style="background-color:#3e7ea4; padding-top:10%; padding-bottom:10%;">
+  <div style="padding-top:10%; padding-bottom:10%;">
     <h1>SEPUTAR SELEBRITY</h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-indicators">
@@ -215,14 +215,15 @@
   </div>
   <br>
   <div style="text-align: left;">
-    <h1>DUNIA OLAHRAGA</h1>
-  </div>
-  <?php 
+  <h1>DUNIA OLAHRAGA</h1>
+</div>
+
+<div class="row" style="width:100%; justify-content:center;" >
+  <div class="sport col-8">
+    <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
     while($row=mysqli_fetch_assoc($card)){
       echo'
-      <div class="row">
-      <div class="col" style="margin-top:4%;">
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4">
@@ -236,11 +237,23 @@
           </div>
         </div>
       </div>
-      </div>
-      </div>
       ';
     }
     ?>
+  </div>
+
+  <div class="col aside">
+      <!-- Konten aside disini -->
+      <div class="list-group" >
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+          All Item
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">Politik</a>
+        <a href="#" class="list-group-item list-group-item-action">Selebritas</a>
+        <a href="#" class="list-group-item list-group-item-action">Olahraga</a>
+        <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+      </div>
+  </div>
 </div>
 
 <div class="container-fluid" style="width:100%;">
@@ -280,42 +293,8 @@ if($i<3){
       '?> 
 
       <?php 
-
-          if($user == 'admin' ){
-
-            echo'
-
-            <div style="text-align:center;  margin:2%;">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Hapus
-            </button>
-            </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Apakah anda yakin ingin menghapus
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button class="btn btn-danger">
-
-                    <a href="db/hapus.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Hapus</a>
-        
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>';
-          }
       echo'
-
       </div>
-
       </div>';
 
 }}
@@ -357,13 +336,13 @@ crossorigin="anonymous"></script>
   var btn =document.querySelector('button');
   window.addEventListener('scroll',function(){
     if(window.pageYOffset > 100){
-      nav.classList.remove('bg-transparent','navbar-dark');
+      nav.classList.remove('bg-dark','navbar-dark');
       nav.classList.add('bg-light','navbar-light','btn-outline-dark');
       btn.classList.remove('btn-outline-light');
       btn.classList.add('btn-outline-dark');
     }else{
       nav.classList.remove('bg-light','navbar-light','btn-outline-dark');
-      nav.classList.add('bg-transparent','navbar-dark','btn-outline-light');
+      nav.classList.add('bg-dark','navbar-dark','btn-outline-light');
       btn.classList.remove('btn-outline-dark');
       btn.classList.add('btn-outline-light');
     }

@@ -378,7 +378,7 @@ header.scrolled nav div ul li a{
 #searchDropdown a {
   display: block;
   color:black;
-  background-color:rgb(133, 162, 185);
+  /* background-color:rgb(133, 162, 185); */
 }
 /* Gaya default untuk carousel */
 .carousel-item {
@@ -408,5 +408,18 @@ header.scrolled nav div ul li a{
   .carousel-item {
     max-width: 100%; /* Atur lebar sesuai kebutuhan */
     margin: auto;
+  }
+}
+.aside{
+  float: right;
+  right:0;
+  width: auto;
+  /* padding-left: 20px; */
+}
+@media screen and (max-width: 1000px){
+  #content,
+  .aside{
+    width: 100%;
+    padding: 0;
   }
 }

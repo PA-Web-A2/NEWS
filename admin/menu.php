@@ -1,10 +1,24 @@
 <?php
 
 session_start();
-$user = $_SESSION['user'];
+if (isset($_SESSION['user'])) {
+  $user = $_SESSION['user'];
+} else {
+  // handling ketika $_SESSION['user'] belum di-set
+  $user = '';
+}
 require "../db/koneksi.php";
 
-$result = mysqli_query($conn,"SELECT*FROM artikel ORDER BY ID_Berita ASC");
+if (isset($_POST['upload'])) {
+  $_SESSION["upload"]="upload";
+  $result = mysqli_query($conn,"SELECT*FROM berita ORDER BY ID_Berita ASC");
+}else if(isset($_POST['writer'])){
+  $result = mysqli_query($conn,"SELECT*FROM artikel ORDER BY ID_Berita ASC");
+  $_SESSION["upload"]="";
+}else{
+  $result = mysqli_query($conn,"SELECT*FROM berita ORDER BY ID_Berita ASC");
+  $_SESSION["upload"]="upload";
+}
 
 ?>
 <!DOCTYPE html>
@@ -45,10 +59,18 @@ crossorigin="anonymous"></script>
 <br>
 
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
-
-<h1 style="text-align:center; padding: 13% 0 5% 0; font-weight:bold;">SEMUA BERITA</h1>
+<h1 style="text-align:center; padding: 5% 0 5% 0; font-weight:bold;">SEMUA BERITA</h1>
 
 <div class="row" style="justify-content:center; margin:0;">
+
+  <form class="row" style="justify-content:center; margin:0;" action="" method="post">
+    <button type="submit" style="width:auto;" class="btn btn-outline-dark" name="upload">
+        Ter Upload
+    </button>
+    <button type="submit" style="width:auto;" class="btn btn-outline-dark" name="writer">
+        Writer
+    </button>
+  </form>
 
 <?php
 
@@ -72,13 +94,17 @@ while($row=mysqli_fetch_assoc($result)){
         </button>
         '?> 
         <?php
-        if($user=="admin"){
+        if($_SESSION["user"]=="admin"){
 
             echo'
-            <div style="text-align:center; margin:2%;">
-            <button class="btn btn-primary">
-            <a href="upload.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Upload</a>
-            </button>
+            <div style="text-align:center; margin:2%;">';
+            if($_SESSION["upload"] !="upload"){
+              echo'
+              <button class="btn btn-primary">
+              <a href="upload.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Upload</a>
+              </button>';
+            }
+            echo'
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Hapus
           </button>

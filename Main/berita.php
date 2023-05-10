@@ -7,6 +7,7 @@
   }else {
       // handling ketika $_SESSION['user'] belum di-set
       $user = '';
+      $_SESSION['user']='';
   }
   ;?>
 <!DOCTYPE html>
@@ -54,9 +55,26 @@
     if (isset($_GET['judul'])) {
       
       $judul = $_GET['judul'];
-      $result = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
+      $results = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
     }
-
+    while($data=mysqli_fetch_assoc($results)){
+    $berita = $data["ID_Berita"];
+    $admin = $data["ID_Admin"];
+    if (isset($_POST['rate'])) {
+      $rate = $_POST['rate'];
+    }
+    if(isset($_POST["save"])){
+        $query = "SELECT*FROM rate WHERE (ID_Admin='$admin' AND ID_Berita='$berita')";
+        $hasil = mysqli_query($conn, $query);
+        if(mysqli_num_rows($hasil) > 0) {
+          $query = "UPDATE rate SET Rating = '$rate'   WHERE (ID_Admin='$admin' AND ID_Berita='$berita')";
+          mysqli_query($conn, $query);
+        }else{
+          $query = "INSERT INTO rate VALUES('$berita','$admin','$rate')";
+          mysqli_query($conn, $query);
+        }
+    }}
+    $result = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
   ?>
 
 <div style="width:100%;">
@@ -129,7 +147,8 @@ while($row=mysqli_fetch_assoc($result)){
   </ul>
 
 </div>
-
+<div>
+</div>
 </aside>
 
 </main>
@@ -139,11 +158,32 @@ while($row=mysqli_fetch_assoc($result)){
 if($_SESSION["user"] == 'user'){
 ?>
   <div class="container-fluid">
+    <h3>Rating</h3>
+    <div>
+    <form action="" method="post">
+      <div class="modal-body">
+        <select name="rate" class="form-select" id="inputGroupSelect01">
+        <option value="None">None</option>
+        <option value="Sangat Buruk">Sangat Buruk</option>
+        <option value="Buruk">Buruk</option>
+        <option value="Cukup Baik">Cukup Baik</option>
+        <option value="Baik">Baik</option>
+        <option value="Sangat Baik">Sangat Baik</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="save">Save</button>
+      </div>
+      <script src="sweetalert2.all.min.js"></script>
+    </form>
+    </div>
     <h3>Komentar</h3>
     <div>
       <form action="komen.php" method="POST">
         <textarea name="komentar" id="" rows="10" style="width:100%;"></textarea>
+        <div class="modal-footer">
         <button class="btn btn-success" type="submit" name="tambah" style="margin:10px;">Upload</button>
+      </div>
       </form>
     </div>
     <?php
@@ -186,6 +226,8 @@ if($_SESSION["user"] == 'user'){
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
 crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

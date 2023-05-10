@@ -3,18 +3,18 @@
     require "koneksi.php";
     if (isset($_GET['judul'])) {
         $judul = $_GET['judul'];    
-        $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Judul ='$judul'");
-      }
+    }
+    $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Judul ='$judul'");
     $username = $_SESSION['username'];
     if($username == '' ){
         header('location:../login.php');
     }else{
     if(isset($_POST["tambah"])){
-        $judul = $_POST["judul"];
+        // $judul = $_POST["judul"];
         $nama = $_POST["nama"];
         $tanggal = $_POST["tanggal"];
         $isi = $_POST["isi"];
-            $query = "UPDATE artikel SET Judul='$nama' , Waktu='$tanggal', Isi= '$isi' WHERE Jenis='$judul'";
+            $query = "UPDATE artikel SET Judul='$nama' , Waktu=now(), Isi= '$isi' WHERE Judul='$judul'";
             if (mysqli_query($conn, $query)) {
                 echo "Gambar berhasil diunggah.";
             } else {
@@ -101,7 +101,7 @@ crossorigin="anonymous">
     while($row=mysqli_fetch_assoc($result)){
     echo'
     Judul
-    <input type="text" name="nama">
+    <input type="text" name="nama" value="'.$row["Judul"].'">
     <br>
     Pilih
     <select name="judul">
@@ -115,9 +115,6 @@ crossorigin="anonymous">
 
     <option value="bisnis">Bisnis</option>  
     </select>
-    <br>
-    Tanggal
-    <input type="date" name="tanggal">
     <br>
     Isi
     <textarea name="isi" style="width:100%;" rows="40" id="editor">'.$row["Isi"].'</textarea>';
