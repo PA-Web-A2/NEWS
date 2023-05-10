@@ -248,17 +248,21 @@
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
           All Item
         </a>
-        <a href="#" class="list-group-item list-group-item-action">Politik</a>
-        <a href="#" class="list-group-item list-group-item-action">Selebritas</a>
-        <a href="#" class="list-group-item list-group-item-action">Olahraga</a>
-        <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+        <a href="Bidang/politik.php" class="list-group-item list-group-item-action">Politik</a>
+        <a href="Bidang/artis.php" class="list-group-item list-group-item-action">Selebritas</a>
+        <a href="Bidang/olahraga.php" class="list-group-item list-group-item-action">Olahraga</a>
+        <a href="Bidang/bisnis.php" class="list-group-item list-group-item-action">Bisnis</a>
+        <a href="Bidang/international.php" class="list-group-item list-group-item-action">International</a>
+        <!-- <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a> -->
       </div>
   </div>
 </div>
 
 <div class="container-fluid" style="width:100%;">
 
-<h1>POLITIK</h1>
+<div>
+  <h1>POLITIK</h1>
+</div>
 
 <div class="row" style="justify-content:center; margin:0;">
 

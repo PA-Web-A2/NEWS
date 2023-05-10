@@ -57,9 +57,16 @@
       $judul = $_GET['judul'];
       $results = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
     }
+    if (isset($_SESSION['username'])) {
+      $id = $_SESSION['username'];
+    }else {
+        // handling ketika $_SESSION['user'] belum di-set
+        $id = '';
+        $_SESSION['username']='';
+    }
     while($data=mysqli_fetch_assoc($results)){
     $berita = $data["ID_Berita"];
-    $admin = $data["ID_Admin"];
+    $admin = $_SESSION["username"];
     if (isset($_POST['rate'])) {
       $rate = $_POST['rate'];
     }
@@ -159,6 +166,20 @@ if($_SESSION["user"] == 'user'){
 ?>
   <div class="container-fluid">
     <h3>Rating</h3>
+    <?php
+    $hasil = mysqli_query($conn, "SELECT*FROM rate WHERE (ID_Admin='$admin' AND ID_Berita='$berita')");
+    // echo $user;
+    while($row=mysqli_fetch_assoc($hasil)){
+    if($_SESSION['username']=$row["ID_Admin"]){
+      echo '<div class="card">
+            <div class="card-header">
+              '.$row["Rating"].'
+            </div>
+            </div>';
+    }
+        }
+      // }
+    ?>
     <div>
     <form action="" method="post">
       <div class="modal-body">
