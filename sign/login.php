@@ -134,7 +134,7 @@
 
   <div class="login">
 
-  <div class="card mb-3" style="max-width: 50%;">
+  <div class="card mb-3" style="max-width: 50%; background-color: rgba(0, 0, 0, 0.1);">
 
   <div class="row g-6">
 

@@ -158,13 +158,28 @@
 
 <div id="content" style="margin-left:1%; width:70%;">
 
+<?php 
+
+while($row=mysqli_fetch_assoc($result)){
+    $berita=$row['ID_Berita'];
+    $komen = mysqli_query($conn,"SELECT*FROM komentar WHERE ID_Berita = '$berita'");
+    $_SESSION['berita']=$berita;
+
+    echo "<img src='../db/".$row['Gambar']."' style='width:100%' class='featured-image' alt=''>
+
+    <h3>".$judul."</h3>        
+
+    <p>".nl2br($row["Isi"])."</p>";
+
+}?>
+
 <article class="card">
 
 <?php 
 
 while($row=mysqli_fetch_assoc($result)){
 
-    echo "<img src='".$row['Gambar']."' style='width:100%' class='featured-image' alt=''>
+    echo "<img src='../db/".$row['Gambar']."' style='width:100%' class='featured-image' alt=''>
 
     <h3>".$judul."</h3>        
 
@@ -217,6 +232,36 @@ while($row=mysqli_fetch_assoc($result)){
 </main>
 
 </div>
+<?php 
+if($_SESSION["user"] == 'user'){
+?>
+  <div class="container-fluid">
+    <h3>Komentar</h3>
+    <div>
+      <form action="komen.php" method="POST">
+        <textarea name="komentar" id="" rows="10" style="width:100%;"></textarea>
+        <button class="btn btn-success" type="submit" name="tambah" style="margin:10px;">Upload</button>
+      </form>
+    </div>
+    <?php
+    // echo $user;
+    // if (mysqli_num_rows($result) >= 0) {
+    while($row=mysqli_fetch_assoc($komen)){
+    echo '<div class="card">
+          <div class="card-header">
+            '.$row["Nama"].'
+          </div>
+          <div class="card-body">
+            <p class="card-text">'.$row["Isi"].'</p>
+          </div>
+          </div>';
+        }
+      // }
+  ?>
+  </div>
+<?php 
+}
+?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 

@@ -57,7 +57,7 @@
 
             // Simpan alamat gambar ke database
 
-            $query = "INSERT INTO artikel VALUES('', '$username' , '$judul', '$jenis','$target_file', '$tanggal', '$isi')";
+            $query = "INSERT INTO artikel VALUES('', '$username' , '$judul', '$jenis','$target_file', now() , '$isi')";
 
             if (mysqli_query($conn, $query)) {
 

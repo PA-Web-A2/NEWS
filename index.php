@@ -49,7 +49,7 @@
 
   <header>
 
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent">
+      <nav class="navbar border fixed-top navbar-expand-lg navbar-dark bg-transparent">
 
           <div class="container-fluid">
 
@@ -173,34 +173,36 @@
 <!-- <div>
   <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
 </div> -->
-<div class="container-fluid" style="width:100%; height:100%;">
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-    <?php 
-    $carou = mysqli_query($conn, "SELECT * FROM berita WHERE Jenis = 'artis' ORDER BY ID_Berita ASC LIMIT 3;");
-    $rows = mysqli_fetch_all($carou, MYSQLI_ASSOC);
-
-    for ($i = 0; $i < count($rows); $i++) {
-      echo '
-          <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">
-          <a href="Main/berita.php?judul='.$rows[$i]["Judul"].'">
-          <img src="db/' . $rows[$i]['Gambar'] . '" class="d-block w-100" alt="..." >
-          <div class="carousel-caption d-none d-md-block">
-            <h5>' . $rows[$i]["Judul"] . '</h5>
+<div class="container-fluid" style="width:100%; height:100%; text-align:center;">
+  <div style="background-color:#3e7ea4; padding-top:10%; padding-bottom:10%;">
+    <h1>SEPUTAR SELEBRITY</h1>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+      <?php 
+      $carou = mysqli_query($conn, "SELECT * FROM berita WHERE Jenis = 'artis' ORDER BY ID_Berita ASC LIMIT 3;");
+      $rows = mysqli_fetch_all($carou, MYSQLI_ASSOC);
+  
+      for ($i = 0; $i < count($rows); $i++) {
+        echo '
+            <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">
+            <a href="Main/berita.php?judul='.$rows[$i]["Judul"].'">
+            <img src="db/' . $rows[$i]['Gambar'] . '" class="d-block w-100" alt="..." >
+            <div class="carousel-caption d-none d-md-block">
+              <h5>' . $rows[$i]["Judul"] . '</h5>
+            </div>
+            </a>
           </div>
-          </a>
-        </div>
-    ';
-  }
-?>
-
-
-    </div>
+      ';
+    }
+  ?>
+  
+  
+  </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -209,6 +211,11 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+    </div>
+  </div>
+  <br>
+  <div style="text-align: left;">
+    <h1>DUNIA OLAHRAGA</h1>
   </div>
   <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
@@ -237,7 +244,8 @@
 </div>
 
 <div class="container-fluid" style="width:100%;">
-<!-- <h1 style="text-align:center; padding: 3%; font-weight:bold;">BERITA</h1> -->
+
+<h1>POLITIK</h1>
 
 <div class="row" style="justify-content:center; margin:0;">
 

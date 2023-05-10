@@ -16,7 +16,7 @@ while($row=mysqli_fetch_assoc($results)){
 $query = "INSERT INTO komentar VALUES('', '$id', '$berita', '$user', '$komentar')";
 
 if (mysqli_query($conn, $query)) {
-    header("Location: berita.php?judul=" . urlencode($judul));
+    header("Location: show.php?judul=" . urlencode($judul));
     exit;
 } else {
     echo "<script>alert('Gagal');</script>";

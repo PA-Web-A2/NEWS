@@ -1,12 +1,12 @@
 <?php
 
-  // session_start();
+  session_start();
 
     if (isset($_SESSION['user'])) {
       $user = $_SESSION['user'];
-  } else {
+  }else {
       // handling ketika $_SESSION['user'] belum di-set
-      $_SESSION['user'] = '';
+      $user = '';
   }
   ;?>
 <!DOCTYPE html>
@@ -28,6 +28,10 @@
   <link rel="stylesheet" href="../assets/style.css">
 
   <script src="https://kit.fontawesome.com/5c90e171df.js" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="../js/search.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
 
@@ -86,14 +90,20 @@ while($row=mysqli_fetch_assoc($result)){
 
 <aside>
 
-<div style="padding: 5%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+<div style="padding: 3%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
 
     <div class="input-group mb-3">
-
-        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cari</button>
-
-        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-
+    <form action="" method="post">
+      <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:350px;" onkeyup="search()">
+      <div>
+        <ul class="dropdown-menu" id="searchDropdown">
+        <li class="dropdown-item">
+          <a href="berita.php?judul=${results[i]}">${results[i].judul}</a>
+        </li>
+        </ul>
+      </div>  
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+    </form>
     </div>
 
 </div>
@@ -110,11 +120,11 @@ while($row=mysqli_fetch_assoc($result)){
 
   <ul class="list-group list-group-flush">
 
-    <li class="list-group-item">An item</li>
+    <li class="list-group-item">Berita Lama</li>
 
-    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">Yang Teratas</li>
 
-    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">Selebritas</li>
 
   </ul>
 
@@ -126,9 +136,7 @@ while($row=mysqli_fetch_assoc($result)){
 
 </div>
 <?php 
-// echo $user;
-if($_SESSION['user'] == 'user'){
-  // require 'komen.php';
+if($_SESSION["user"] == 'user'){
 ?>
   <div class="container-fluid">
     <h3>Komentar</h3>
@@ -139,6 +147,7 @@ if($_SESSION['user'] == 'user'){
       </form>
     </div>
     <?php
+    // echo $user;
     // if (mysqli_num_rows($result) >= 0) {
     while($row=mysqli_fetch_assoc($komen)){
     echo '<div class="card">
@@ -153,7 +162,9 @@ if($_SESSION['user'] == 'user'){
       // }
   ?>
   </div>
-<?php }?>
+<?php 
+}
+?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
