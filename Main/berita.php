@@ -114,7 +114,36 @@ while($row=mysqli_fetch_assoc($result)){
 </div>
 
 <aside>
-
+<div class="card">
+  <?php
+  $idx = mysqli_query($conn, "SELECT*FROM artikel WHERE ID_Berita='$berita'");
+  // echo $user;
+  while($row=mysqli_fetch_assoc($idx)){
+    $id = $row["ID_Admin"];
+    $akun = mysqli_query($conn, "SELECT*FROM admin WHERE ID_Admin='$id'");
+    while($row=mysqli_fetch_assoc($akun)){
+    echo '<div class="card-header">
+            <h5>Profile</h5>
+          </div>
+          <div class="card-body">
+          <table>
+          <tr><img src="../profile/'.$row["Gambar"].'" style="width:200px;"></img></tr>
+          <tr>
+            <td>Username</td>
+            <td>:</td>
+            <td>'.$row["Username"].'</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>'.$row["Gender"].'</td>
+          </tr>
+          </table>
+          </div>';
+      }}
+    // }
+  ?>
+</div>
 <div style="padding: 3%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
 
     <div class="input-group mb-3">
@@ -137,21 +166,17 @@ while($row=mysqli_fetch_assoc($result)){
 
 <div class="card" >
 
-  <div class="card-header">
-
-    Berita Terbaru
-
+  <div class="list-group" >
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+          All Item
+        </a>
+        <a href="../Bidang/politik.php" class="list-group-item list-group-item-action">Politik</a>
+        <a href="../Bidang/artis.php" class="list-group-item list-group-item-action">Selebritas</a>
+        <a href="../Bidang/olahraga.php" class="list-group-item list-group-item-action">Olahraga</a>
+        <a href="../Bidang/bisnis.php" class="list-group-item list-group-item-action">Bisnis</a>
+        <a href="../Bidang/international.php" class="list-group-item list-group-item-action">International</a>
+        <!-- <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a> -->
   </div>
-
-  <ul class="list-group list-group-flush">
-
-    <li class="list-group-item">Berita Lama</li>
-
-    <li class="list-group-item">Yang Teratas</li>
-
-    <li class="list-group-item">Selebritas</li>
-
-  </ul>
 
 </div>
 <div>

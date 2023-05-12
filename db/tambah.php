@@ -165,54 +165,49 @@ crossorigin="anonymous">
 
     <h1 style="text-align:center; margin-bottom:5px;">Tambah Data</h1>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <div class="table-responsive">
+          <table class="table table-light table-striped">
+          <form action="" method="POST" enctype="multipart/form-data">
+            <tbody>
+              <tr>
+                <th scope="row">Gambar</th>
+                <td>:</td>
+                <td><input type="file" name="gambar" accept=".gif,.jpg,.jpeg,.png"></td>
+              </tr>
+              <tr>
+                <th scope="row">Judul</th>
+                <td>:</td>
+                <td><input type="text" name="judul"></td>
+              </tr>
+              <tr>
+                <th scope="row">Jenis</th>
+                <td>:</td>
+                <td>
+                <select name="jenis">
 
-        <input type="file" name="gambar" accept=".gif,.jpg,.jpeg,.png">
+                <option value="international">International</option>
 
-        <br>
+                <option value="politik">Politik</option>
 
-        Judul
+                <option value="olahraga">Olahraga</option>
 
-        <input type="text" name="judul">
-        <br>
-	    Jenis
-        <select name="jenis">
+                <option value="artis">Artis</option>
 
-            <option value="international">International</option>
+                <option value="bisnis">Bisnis</option>    
 
-            <option value="politik">Politik</option>
-
-            <option value="olahraga">Olahraga</option>
-
-            <option value="artis">Artis</option>
-
-            <option value="bisnis">Bisnis</option>    
-
-        </select>
-
-
-        <!-- <br>
-
-        Tanggal
-
-        <input type="date" name="tanggal"> -->
-
-        <br>
-
-        Isi
-
-        <!-- <div id="editor" >
-            </div> -->
-        <textarea name="isi" style="width:100%;" rows="40" id="editor"></textarea>
-
-
-        <br>
-
+                </select>
+            </td>
+              </tr>
+              <tr>
+                <th scope="row">Isi Berita</th>
+                <td>:</td>
+                <td><textarea name="isi" style="width:100%;" rows="40" id="editor"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <button class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right;">Upload</button>
-
         <!-- <button type="submit" name="tambah">Tambah</button> -->
-
-    </form>
 
 <?php }?>
 

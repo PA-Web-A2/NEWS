@@ -111,14 +111,112 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
         </nav>
 
   </header>
+<?php
+  $id= $_SESSION["username"];
+  if(isset($_POST["save"])){
+  $target_dir = "uploads/";
 
+  // Definisikan nama file dan path-nya
+
+  $target_file = $target_dir . basename($_FILES["gambar"]["name"]);
+
+  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+
+  && $imageFileType != "gif" ) {
+
+      echo "Hanya file gambar yang diperbolehkan.";
+
+      exit;
+
+  }
+
+  
+
+  // Pindahkan file yang diupload ke direktori yang dituju
+
+  if (!file_exists($target_dir)) {
+
+      mkdir($target_dir, 0777, true);
+
+  }
+
+  if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
+
+      // Simpan alamat gambar ke database
+
+      $query = "UPDATE admin SET Gambar = '$target_file' WHERE ID_Admin='$id'";
+
+      if (mysqli_query($conn, $query)) {
+
+          echo "Gambar berhasil diunggah.";
+
+      } else {
+
+          echo "Terjadi kesalahan saat menyimpan data ke database.";
+
+      }
+
+  } else {
+
+      echo "Terjadi kesalahan saat mengunggah gambar.";
+
+  }}
+?>
 <div style="width:100%;">
 
 <br>
 
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
+<div class="text-center" style="padding: 5% 0 5% 0;">
+  <?php
+    $ID =  mysqli_query($conn,"SELECT * FROM admin WHERE ID_Admin = '$id'");
+    while($row=mysqli_fetch_assoc($ID)){
+      if($row["Gambar"] == NULL){
+        
+        echo'<img src="uploads/pria.png" style="width:10%" class="rounded mx-auto d-block" alt="...">';
+      }else{
+        echo'<img src="'.$row["Gambar"].'" style="width:10%" class="rounded mx-auto d-block" alt="...">
+        ';
+      }
+      echo'<br>
+      <button type="button" style="margin:0 0 0 0; width:auto;" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Ganti
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ganti Profile</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="" method="POST" enctype="multipart/form-data" >
+              <input type="file" name="gambar" accept=".gif,.jpg,.jpeg,.png">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" name="save">Save changes</button>
+              </div>
+              </form>
+          </div>
+        </div>
+      </div>';
+    echo'
+      <h3>'.$row["Username"].'</h3>';
+    $ID =  mysqli_query($conn,"SELECT COUNT(*) AS Jumlah FROM artikel WHERE ID_Admin = '$id';");
+    while($rows=mysqli_fetch_assoc($ID)){
+      echo 
+      '<div class="row" style="width:100%; justify-content:center;" >
+      <div class="col-2"><h5>Konten : '.$rows["Jumlah"].'</h5></div>
+      <div class="col-2"><h5>'.$row["Gender"].'</h5></div>
+      ';}}
+  ?>
+  </div>
+</div>
 
-<h1 style="text-align:center; padding: 13% 0 5% 0; font-weight:bold;">MY NEWS</h1>
+
+<h1 style="text-align:center; padding: 5% 0 5% 0; font-weight:bold;">MY UPLOADS</h1>
+
 
 <div class="row" style="justify-content:center; margin:0;">
 

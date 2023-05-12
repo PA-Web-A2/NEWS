@@ -100,24 +100,48 @@ crossorigin="anonymous">
     <?php
     while($row=mysqli_fetch_assoc($result)){
     echo'
-    Judul
-    <input type="text" name="nama" value="'.$row["Judul"].'">
-    <br>
-    Pilih
-    <select name="judul">
-    <option value="international">International</option>
+    <div class="table-responsive">
+    <table class="table table-light table-striped">
+    <form action="" method="POST" enctype="multipart/form-data">
+      <tbody>
+        <tr>
+          <th scope="row">Gambar</th>
+          <td>:</td>
+          <td><input type="file" name="gambar" accept=".gif,.jpg,.jpeg,.png"></td>
+        </tr>
+        <tr>
+          <th scope="row">Judul</th>
+          <td>:</td>
+          <td><input type="text" name="nama"  value="'.$row["Judul"].'"></td>
+        </tr>
+        <tr>
+          <th scope="row">Jenis</th>
+          <td>:</td>
+          <td>
+          <select name="judul">
 
-    <option value="politik">Politik</option>
+          <option value="international">International</option>
 
-    <option value="olahraga">Olahraga</option>
+          <option value="politik">Politik</option>
 
-    <option value="artis">Artis</option>
+          <option value="olahraga">Olahraga</option>
 
-    <option value="bisnis">Bisnis</option>  
-    </select>
-    <br>
-    Isi
-    <textarea name="isi" style="width:100%;" rows="40" id="editor">'.$row["Isi"].'</textarea>';
+          <option value="artis">Artis</option>
+
+          <option value="bisnis">Bisnis</option>    
+
+          </select>
+      </td>
+        </tr>
+        <tr>
+          <th scope="row">Isi Berita</th>
+          <td>:</td>
+          <td><textarea name="isi" style="width:100%;" rows="40" id="editor">'.$row["Isi"].'</textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    ';
     };?>
         <br>
         <button class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right;">Upload</button>

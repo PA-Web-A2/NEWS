@@ -37,10 +37,10 @@
                   <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../Main/menu.php">Berita</a>
+                  <a class="nav-link active" href="../Main/menu.php">Berita</a>
                 </li>
                   <li class="nav-item dropdown">
-                  <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Bidang
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

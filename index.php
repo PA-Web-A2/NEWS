@@ -246,7 +246,7 @@
       <!-- Konten aside disini -->
       <div class="list-group" >
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-          All Item
+          All Topic
         </a>
         <a href="Bidang/politik.php" class="list-group-item list-group-item-action">Politik</a>
         <a href="Bidang/artis.php" class="list-group-item list-group-item-action">Selebritas</a>
@@ -255,8 +255,23 @@
         <a href="Bidang/international.php" class="list-group-item list-group-item-action">International</a>
         <!-- <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a> -->
       </div>
+      <br>
+      <div class="list-group" >
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+          All NEWS
+        </a>
+        <?php
+        $berita =  mysqli_query($conn,"SELECT * FROM berita ORDER BY ID_Berita ASC LIMIT 10;");
+        while($row=mysqli_fetch_assoc($berita)){
+          echo'
+            <a href="Main/berita.php?judul='.$row["Judul"].'" class="list-group-item list-group-item-action">'.$row["Judul"].'</a>';
+        }
+        ?>
+      </div>
   </div>
 </div>
+
+<br>
 
 <div class="container-fluid" style="width:100%;">
 
