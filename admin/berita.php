@@ -28,13 +28,13 @@
 
   <header>
 
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
 
           <div class="container-fluid">
 
             <a class="navbar-brand" href="#">
 
-              <img src="../assets/Image/icon.png" style="width:180px;" alt="">
+              <!-- <img src="../assets/Image/icon.png" style="width:180px;" alt=""> -->
 
             </a>
 
@@ -50,19 +50,19 @@
 
                 <li class="nav-item">
 
-                  <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
+                  <a style="color: white;" class="nav-link" aria-current="page" href="../index.php">Beranda</a>
 
                 </li>
 
                 <li class="nav-item">
 
-                  <a class="nav-link active" href="menu.php">Berita</a>
+                  <a style="color: white;" class="nav-link active" href="menu.php">Berita</a>
 
                 </li>
 
                 <li class="nav-item dropdown">
 
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Bidang
 
@@ -114,11 +114,12 @@
 
 <br>
 
-<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%;">BERITA</h1>
+<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>BERITA</h1>
 
 <main>
 
-<div id="content" style="margin-left:1%;" article class="card">
+<div id="content" style="margin-left:1%;" article class="card" style="box-shadow: 5px 3px 3px 1px rgb(57, 55, 55);">
 
 <?php 
 
@@ -152,7 +153,7 @@ while($row=mysqli_fetch_assoc($result)){
 
 <div class="card" >
 
-  <div class="card-header">
+  <div id="tb" class="card-header">
 
     Berita Terbaru
 

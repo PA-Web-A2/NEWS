@@ -423,3 +423,33 @@ header.scrolled nav div ul li a{
     padding: 0;
   }
 }
+#box{
+  box-shadow: 5px 3px 3px 1px rgb(57, 55, 55);
+}
+#tb:hover{
+  transform: scale(1.1);
+}
+.slb{
+  background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.jdl{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  list-style: none;
+  display: inline-block;
+  margin: 20px 0 30px;
+  position: relative;
+  text-transform: uppercase;
+}
+.jdl::after{
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}

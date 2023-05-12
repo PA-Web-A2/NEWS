@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KEJAKSAAN</title>
+  <title>BERITA</title>
 
   <link rel="stylesheet" href="../assets/style.css">
 
@@ -28,13 +28,13 @@
 
   <header>
 
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );>
 
           <div class="container-fluid">
 
             <a class="navbar-brand" href="#">
 
-              <img src="../assets/Image/icon.png" style="width:180px;" alt="">
+              <!-- <img src="../assets/Image/icon.png" style="width:180px;" alt=""> -->
 
             </a>
 
@@ -50,19 +50,19 @@
 
                 <li class="nav-item">
 
-                  <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
+                  <a style="color: white;" class="nav-link" aria-current="page" href="../index.php">Beranda</a>
 
                 </li>
 
                 <li class="nav-item">
 
-                  <a class="nav-link" href="../Main/menu.php">Berita</a>
+                  <a style="color: white;" class="nav-link" href="../Main/menu.php">Berita</a>
 
                 </li>
 
                 <li class="nav-item dropdown">
 
-                  <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a style="color: white;" class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Bidang
 
@@ -86,7 +86,7 @@
 
                 <li class="nav-item dropdown">
 
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Profile
 
@@ -152,7 +152,8 @@
 
 <br>
 
-<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%;">BERITA</h1>
+<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>BERITA</h1>
 
 <main>
 
@@ -197,7 +198,7 @@ while($row=mysqli_fetch_assoc($result)){
 
     <div class="input-group mb-3">
 
-        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cari</button>
+        <button id="tb" class="btn btn-outline-secondary" type="button" id="button-addon1" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));">Cari</button>
 
         <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
 
@@ -209,7 +210,7 @@ while($row=mysqli_fetch_assoc($result)){
 
 <div class="card" >
 
-  <div class="card-header">
+  <div id="tb" class="card-header">
 
     Berita Terbaru
 
@@ -217,11 +218,11 @@ while($row=mysqli_fetch_assoc($result)){
 
   <ul class="list-group list-group-flush">
 
-    <li class="list-group-item">An item</li>
+    <li id="tb" class="list-group-item">Berita Terlama</li>
 
-    <li class="list-group-item">A second item</li>
+    <li id="tb" class="list-group-item">Yang Teratas</li>
 
-    <li class="list-group-item">A third item</li>
+    <li id="tb" class="list-group-item">Selebritas</li>
 
   </ul>
 
@@ -236,11 +237,13 @@ while($row=mysqli_fetch_assoc($result)){
 if($_SESSION["user"] == 'user'){
 ?>
   <div class="container-fluid">
-    <h3>Komentar</h3>
+    <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+    >Komentar</h3>
     <div>
       <form action="komen.php" method="POST">
         <textarea name="komentar" id="" rows="10" style="width:100%;"></textarea>
-        <button class="btn btn-success" type="submit" name="tambah" style="margin:10px;">Upload</button>
+        <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );"
+        >Upload</button>
       </form>
     </div>
     <?php

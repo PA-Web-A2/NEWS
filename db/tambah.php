@@ -117,7 +117,7 @@ crossorigin="anonymous">
 
 <header>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white" >
+<nav class="navbar navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );" >
 <div class="container-fluid">
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -125,14 +125,14 @@ crossorigin="anonymous">
 <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
     <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
+        <a style="color: white;" class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="../Main/menu.php">Berita</a>
+        <a style="color: white;" class="nav-link" href="../Main/menu.php">Berita</a>
     </li>
     <li class="nav-item dropdown">
 
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
     Bidang
 
@@ -163,7 +163,8 @@ crossorigin="anonymous">
 
 <div class="container">
 
-    <h1 style="text-align:center; margin-bottom:5px;">Tambah Data</h1>
+    <h1 style="text-align:center; margin:5% 0 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+    >Tambah Data</h1>
 
     <form action="" method="POST" enctype="multipart/form-data">
 
@@ -208,7 +209,8 @@ crossorigin="anonymous">
 
         <br>
 
-        <button class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right;">Upload</button>
+        <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right; background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );"
+        >Upload</button>
 
         <!-- <button type="submit" name="tambah">Tambah</button> -->
 

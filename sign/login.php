@@ -163,8 +163,8 @@
         <div id="emailHelp" class="form-text" style="font-weight:bold;">Belum punya akun? <a href="signup.php">Sign Up</a></div>
 
         <div style="margin-top:5px; float:right; justify-content:center;">
-          <button class="btn btn-dark" style="margin-right:10px;"><a style="text-decoration:None; color:white;" href="../index.php">Kembali</a></button>
-          <button type="submit" name="submit" class="btn btn-primary">Sign in</button>
+          <button id="tb" class="btn btn-dark" style="margin-right:10px;"><a style="text-decoration:None; color:white;" href="../index.php">Kembali</a></button>
+          <button id="tb" type="submit" name="submit" class="btn btn-primary" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) )">Sign in</button>
         
         
         </div>

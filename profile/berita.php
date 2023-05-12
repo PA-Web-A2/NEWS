@@ -38,7 +38,7 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
 
   <header>
 
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
 
           <div class="container-fluid">
 
@@ -54,19 +54,19 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
 
                 <li class="nav-item">
 
-                  <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
+                  <a style="color: white;" class="nav-link" aria-current="page" href="../index.php">Beranda</a>
 
                 </li>
 
                 <li class="nav-item">
 
-                  <a class="nav-link active" href="#">Berita</a>
+                  <a style="color: white;" class="nav-link active" href="#">Berita</a>
 
                 </li>
 
                   <li class="nav-item dropdown">
 
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Bidang
 
@@ -118,7 +118,8 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
 
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
 
-<h1 style="text-align:center; padding: 13% 0 5% 0; font-weight:bold;">MY NEWS</h1>
+<h1 style="text-align:center; padding: 8% 0 5% 0; font-weight:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>MY NEWS</h1>
 
 <div class="row" style="justify-content:center; margin:0;">
 
@@ -128,7 +129,7 @@ while($row=mysqli_fetch_assoc($result)){
 
     echo '<div class="col-sm-3" style="margin:1.5%;">
 
-    <div class="card" style="min-height:35rem;">
+    <div id="box" class="card" style="min-height:35rem;">
 
         <img src="../db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
@@ -137,17 +138,17 @@ while($row=mysqli_fetch_assoc($result)){
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
 
         </div>
-        <button class="btn btn-dark">
+        <button id="tb" class="btn btn-dark">
         <a href="show.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
         </button>
         '?> 
         <?php
               echo'
               <div style="text-align:center; margin:2%;">
-              <button class="btn btn-primary">
+              <button id="tb" class="btn btn-primary">
               <a href="../db/edit.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Edit</a>
               </button>
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button id="tb" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Hapus
             </button>
             </div>

@@ -88,11 +88,12 @@
 
 <br>
 
-<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%;">BERITA</h1>
+<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>BERITA</h1>
 
 <main>
 
-<div id="content" article class="card">
+<div id="content" article class="card" style="box-shadow: 5px 3px 3px 1px rgb(57, 55, 55);">
 
 <?php 
 
@@ -127,7 +128,7 @@ while($row=mysqli_fetch_assoc($result)){
         </li>
         </ul>
       </div>  
-      <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+      <button id="tb" class="btn btn-outline-secondary" type="button" id="button-addon1" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));">Search</button>
     </form>
     </div>
 
@@ -137,7 +138,7 @@ while($row=mysqli_fetch_assoc($result)){
 
 <div class="card" >
 
-  <div class="card-header">
+  <div id="tb" class="card-header">
 
     Berita Terbaru
 
@@ -145,11 +146,11 @@ while($row=mysqli_fetch_assoc($result)){
 
   <ul class="list-group list-group-flush">
 
-    <li class="list-group-item">Berita Lama</li>
+    <li id="tb" class="list-group-item">Berita Lama</li>
 
-    <li class="list-group-item">Yang Teratas</li>
+    <li id="tb" class="list-group-item">Yang Teratas</li>
 
-    <li class="list-group-item">Selebritas</li>
+    <li id="tb" class="list-group-item">Selebritas</li>
 
   </ul>
 
@@ -165,7 +166,7 @@ while($row=mysqli_fetch_assoc($result)){
 if($_SESSION["user"] == 'user'){
 ?>
   <div class="container-fluid">
-    <h3>Rating</h3>
+    <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Rating</h3>
     <?php
     $hasil = mysqli_query($conn, "SELECT*FROM rate WHERE (ID_Admin='$admin' AND ID_Berita='$berita')");
     // echo $user;
@@ -193,17 +194,18 @@ if($_SESSION["user"] == 'user'){
         </select>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="save">Save</button>
+        <button id="tb" type="submit" class="btn btn-primary" name="save" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">Save</button>
       </div>
       <script src="sweetalert2.all.min.js"></script>
     </form>
     </div>
-    <h3>Komentar</h3>
+    <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Komentar</h3>
     <div>
       <form action="komen.php" method="POST">
         <textarea name="komentar" id="" rows="10" style="width:100%;"></textarea>
         <div class="modal-footer">
-        <button class="btn btn-success" type="submit" name="tambah" style="margin:10px;">Upload</button>
+        <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );"
+        >Upload</button>
       </div>
       </form>
     </div>
