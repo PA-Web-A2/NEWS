@@ -48,8 +48,14 @@
 <body>
 
   <header>
-
-      <nav class="navbar border fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="jumbotron bg-dark">
+          <img src="assets/Image/logo.png" style="width: 150px;" alt="">
+           <h1 class="text-center">
+             ALL NEWS FOR YOU
+           </h1> 
+            <h5 class="text-center">ALL WE GIVE ARE THE BEST FOR YOUR EXPERIENCE</h5>
+      </div> 
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 
           <div class="container-fluid">
 
@@ -59,11 +65,11 @@
 
             </a> -->
 
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
 
-            </button> -->
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
 
@@ -132,9 +138,9 @@
                 </form>
               </li>
               </ul>
-
+              
               <div class="collapse navbar-collapse" style="justify-content:right;">
-              <ul class="navbar-nav">
+                <ul class="navbar-nav">
 
                 <?php
 
@@ -167,13 +173,43 @@
         </nav>
 
 </header>
-<!-- <video autoplay loop muted style="width:100%">
-  <source src="assets/Image/bg.mp4">
-</video> -->
-<!-- <div>
-  <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
-</div> -->
-<div class="container-fluid" style="width:100%; height:100%; text-align:center;">
+<div style="height: 100%; background-image: url('assets/image/bg5.png'); background-size: cover;">
+    <div id="menu" class="cardintro">
+        <h2 style="color: white;" id="salam">
+            <?php
+              $nama=$_SESSION['user'];
+              echo "SELAMAT DATANG ". strtoupper($nama) ;
+            ?>
+        </h2>
+        <!-- <p>Selamat datang di Coffeeshop kami! Kami bangga menjadi bagian dari komunitas kopi yang semakin berkembang, 
+            dan selalu berusaha untuk memberikan pengalaman kopi yang luar biasa untuk pelanggan kami.</p> -->
+    <button class="btn btn-dark">
+        <a href="#berita" style="text-decoration: none; color: rgb(255, 255, 255);">Read Now</a>
+    </button>
+    </div>
+</div>
+<div id="news" style="height: 100vh;">
+    <div class="container-fluid">
+      <img src="assets/Image/berita.jpg" alt="" style="width: 60%; float: left; padding: 5% 0 0 5%;">
+      <div style="color: black; float: right; padding: 10% 0 0 0; font-size: larger; font-weight: bold">
+        Selamat datang di situs OUR NEWS!
+        <br>
+        <h5>Kami dengan senang hati menyambut Anda sebagai 
+        <br>
+        pembaca setia yang cerdas dan berpengetahuan. 
+        <br>
+        Di sini, Anda akan menemukan berita terkini dan
+        <br>
+        terpercaya yang mencakup berbagai topik 
+        <br>
+        dari seluruh dunia.<h5>
+        <br>
+        <button class="btn btn-primary"><a href="sign/login.php" style="padding-top: 3%; text-decoration: none; color: white; font-weight: 100;">Join Now</a></button>
+      </div>
+    </div>
+</div>
+
+<div id="berita" class="container-fluid" style="width:100%; height:100%; text-align:center;">
   <div style="padding-top:10%; padding-bottom:10%;">
     <h1>SEPUTAR SELEBRITY</h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -215,10 +251,10 @@
   </div>
   <br>
   <div style="text-align: left;">
-  <h1>DUNIA OLAHRAGA</h1>
-</div>
-
-<div class="row" style="width:100%; justify-content:center;" >
+    <h1>DUNIA OLAHRAGA</h1>
+  </div>
+  
+  <div class="row" style="background-color:grey; width:100%; padding:5%; justify-content:center;" >
   <div class="sport col-8">
     <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
@@ -356,12 +392,12 @@ crossorigin="anonymous"></script>
   window.addEventListener('scroll',function(){
     if(window.pageYOffset > 100){
       nav.classList.remove('bg-dark','navbar-dark');
-      nav.classList.add('bg-light','navbar-light','btn-outline-dark');
+      nav.classList.add('bg-light','navbar-light');
       btn.classList.remove('btn-outline-light');
       btn.classList.add('btn-outline-dark');
     }else{
-      nav.classList.remove('bg-light','navbar-light','btn-outline-dark');
-      nav.classList.add('bg-dark','navbar-dark','btn-outline-light');
+      nav.classList.remove('bg-light','navbar-light');
+      nav.classList.add('bg-dark','navbar-dark');
       btn.classList.remove('btn-outline-dark');
       btn.classList.add('btn-outline-light');
     }

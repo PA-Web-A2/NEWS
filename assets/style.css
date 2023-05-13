@@ -3,9 +3,9 @@
   font-family: "Dicoding Font";
   src: url('FILE-FONT.TTF');
 }
+
 *{
   scroll-behavior: smooth;
-  margin: 0;
 }
 
 body{
@@ -94,7 +94,7 @@ body{
   padding: 3%;
 }
 .cardintro{
-  /* padding: 20% 50% 20% 5%; */
+  padding: 20% 0% 20% 0%;
   text-align: center;
   font-size:x-large;
   /* background-color: white; */
@@ -108,11 +108,11 @@ body{
   color: rgb(0, 0, 0);
 }
 .jumbotron{
-  padding: 5px;
-  background-color: black;
-  text-align:left;
+  text-align:center;
   font-size: 20px;
   color: white;
+  margin: 0;
+  padding:1%;
 }
 nav li{
   display: inline;
@@ -370,11 +370,22 @@ header.scrolled nav div ul li a{
 #searchDropdown {
   position: absolute;
   top: 100%;
-  left: 0;
-  z-index: 999;
+  left: 22%;
+  z-index: 888;
   display: none;
-  width: 100%;
+  width: 70%;
 }
+
+@media (max-width: 767px) {
+  /* Atur tata letak untuk ukuran perangkat seperti hp */
+  #searchDropdown {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+  }
+}
+
 
 #searchDropdown li {
   margin-bottom: 5px; 
