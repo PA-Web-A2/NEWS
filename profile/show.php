@@ -62,7 +62,8 @@ crossorigin="anonymous"></script>
 
 <br>
 
-<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%;">BERITA</h1>
+<h1 style="text-align:center; padding: 3%; font-weight:bold; margin-top: 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>BERITA</h1>
 
 <main>
 

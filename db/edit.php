@@ -41,7 +41,7 @@ crossorigin="anonymous">
 </head>
 <body>
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-white" >
+<nav class="navbar navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
 <div class="container-fluid">
 <!-- <a class="navbar-brand" href="#">
     <img src="../assets/Image/icon.png" style="width:180px;" alt="">
@@ -52,13 +52,13 @@ crossorigin="anonymous">
 <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
     <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
+        <a style="color: white;" class="nav-link" aria-current="page" href="../index.php">Beranda</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="../Main/menu.php">Berita</a>
+        <a style="color: white;" class="nav-link" href="../Main/menu.php">Berita</a>
     </li>
     <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a style="color: white;" class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Bidang
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -95,7 +95,8 @@ crossorigin="anonymous">
 </header>
 <body>
 <div class="container">
-    <h1 style="text-align:center; margin-bottom:5px;">Edit Data</h1>
+    <h1 style="text-align:center; margin:5% 0 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+    >Edit Data</h1>
     <form action="" method="POST" enctype="multipart/form-data">
     <?php
     while($row=mysqli_fetch_assoc($result)){
@@ -144,7 +145,8 @@ crossorigin="anonymous">
     ';
     };?>
         <br>
-        <button class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right;">Upload</button>
+        <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right; background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );"
+        >Upload</button>
     </form>
 <?php }?>
 </div>

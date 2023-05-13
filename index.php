@@ -49,7 +49,7 @@
 
   <header>
       <div class="jumbotron bg-dark">
-          <img src="assets/Image/logo.png" style="width: 150px;" alt="">
+          <img src="assets/Image/logo.png" style="width: 120px;" alt="">
            <h1 class="text-center">
              ALL NEWS FOR YOU
            </h1> 
@@ -124,9 +124,11 @@
                   </li>';
                 }
                 ?>
+              <div class="collapse navbar-collapse" style="justify-content:right;">
+              </div>
               <li class="nav-item">
                 <form class="d-flex" method="post">
-                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;" onkeyup="search()">
+                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:450px;" onkeyup="search()">
                   <div>
                     <ul class="dropdown-menu" id="searchDropdown">
                     <li class="dropdown-item">
@@ -134,7 +136,7 @@
                     </li>
                     </ul>
                   </div>  
-                  <button name="cari" class="btn btn-outline-light" type="submit">Search</button>
+                  <!-- <button name="cari" class="btn btn-outline-light" type="submit">Search</button> -->
                 </form>
               </li>
               </ul>
@@ -177,7 +179,7 @@
     <div id="menu" class="cardintro">
         <h2 style="color: white;" id="salam">
             <?php
-              $nama=$_SESSION['user'];
+              $nama=$user;
               echo "SELAMAT DATANG ". strtoupper($nama) ;
             ?>
         </h2>
@@ -211,14 +213,14 @@
 
 <div id="berita" class="container-fluid" style="width:100%; height:100%; text-align:center;">
   <div style="padding-top:10%; padding-bottom:10%;">
-    <h1>SEPUTAR SELEBRITY</h1>
+    <h1> SEPUTAR <span class="slb"> SELEBRITY </span></h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <div class="carousel-inner">
+      <div id="box" class="carousel-inner">
       <?php 
       $carou = mysqli_query($conn, "SELECT * FROM berita WHERE Jenis = 'artis' ORDER BY ID_Berita ASC LIMIT 3;");
       $rows = mysqli_fetch_all($carou, MYSQLI_ASSOC);
@@ -251,16 +253,16 @@
   </div>
   <br>
   <div style="text-align: left;">
-    <h1>DUNIA OLAHRAGA</h1>
-  </div>
-  
-  <div class="row" style="background-color:grey; width:100%; padding:5%; justify-content:center;" >
+  <h1 class="jdl">DUNIA OLAHRAGA</h1>
+</div>
+
+<div class="row" style="width:100%; justify-content:center;" >
   <div class="sport col-8">
     <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
     while($row=mysqli_fetch_assoc($card)){
       echo'
-      <div class="card mb-3">
+      <div id="box" class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="db/'.$row["Gambar"].'" class="img-fluid rounded-start" alt="...">
@@ -281,19 +283,19 @@
   <div class="col aside">
       <!-- Konten aside disini -->
       <div class="list-group" >
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        <a href="#" id="tb" class="list-group-item list-group-item-action active" aria-current="true" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
           All Topic
         </a>
-        <a href="Bidang/politik.php" class="list-group-item list-group-item-action">Politik</a>
-        <a href="Bidang/artis.php" class="list-group-item list-group-item-action">Selebritas</a>
-        <a href="Bidang/olahraga.php" class="list-group-item list-group-item-action">Olahraga</a>
-        <a href="Bidang/bisnis.php" class="list-group-item list-group-item-action">Bisnis</a>
-        <a href="Bidang/international.php" class="list-group-item list-group-item-action">International</a>
+        <a href="Bidang/politik.php" id="tb" class="list-group-item list-group-item-action">Politik</a>
+        <a href="Bidang/artis.php" id="tb" class="list-group-item list-group-item-action">Selebritas</a>
+        <a href="Bidang/olahraga.php" id="tb" class="list-group-item list-group-item-action">Olahraga</a>
+        <a href="Bidang/bisnis.php" id="tb" class="list-group-item list-group-item-action">Bisnis</a>
+        <a href="Bidang/international.php" id="tb" class="list-group-item list-group-item-action">International</a>
         <!-- <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a> -->
       </div>
       <br>
       <div class="list-group" >
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
           All NEWS
         </a>
         <?php
@@ -312,7 +314,7 @@
 <div class="container-fluid" style="width:100%;">
 
 <div>
-  <h1>POLITIK</h1>
+  <h1 class="jdl">POLITIK</h1>
 </div>
 
 <div class="row" style="justify-content:center; margin:0;">
@@ -327,7 +329,7 @@ if($i<3){
 
   echo '<div class="col-sm-3">
 
-    <div class="card" style="min-height:15rem;">
+    <div id="box" class="card" style="min-height:15rem;">
 
       <img src="db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
@@ -339,7 +341,7 @@ if($i<3){
 
       echo'</div>
 
-      <button class="btn btn-dark">
+      <button id="tb" class="btn btn-dark">
 
       <a href="Main/berita.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
 
@@ -360,7 +362,7 @@ if($i<3){
 
 <div style="margin-top:50px; text-align:center;">
 
-  <button class="btn btn-primary" style="width:auto;"><a href="Main/menu.php" style="text-decoration:None; color:white;">View All</a></button>
+  <button id="tb" class="btn btn-primary" style="width:auto; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) )"><a href="Main/menu.php" style="text-decoration:None; color:white;">View All</a></button>
 
 </div>
 
@@ -391,8 +393,8 @@ crossorigin="anonymous"></script>
   var btn =document.querySelector('button');
   window.addEventListener('scroll',function(){
     if(window.pageYOffset > 100){
-      nav.classList.remove('bg-dark','navbar-dark');
-      nav.classList.add('bg-light','navbar-light');
+      nav.classList.remove('bg-dark','navbar-dark','btn-outline-light');
+      nav.classList.add('bg-light','navbar-light','btn-outline-dark');
       btn.classList.remove('btn-outline-light');
       btn.classList.add('btn-outline-dark');
     }else{

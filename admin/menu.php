@@ -59,15 +59,16 @@ crossorigin="anonymous"></script>
 <br>
 
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
-<h1 style="text-align:center; padding: 5% 0 5% 0; font-weight:bold;">SEMUA BERITA</h1>
+<h1 style="text-align:center; padding: 5% 0 5% 0; font-weight:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>SEMUA BERITA</h1>
 
 <div class="row" style="justify-content:center; margin:0;">
 
   <form class="row" style="justify-content:center; margin:0;" action="" method="post">
-    <button type="submit" style="width:auto;" class="btn btn-outline-dark" name="upload">
+    <button id="tb" type="submit" style="width:auto; margin-right:5px; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))" class="btn btn-primary" name="upload">
         Ter Upload
     </button>
-    <button type="submit" style="width:auto;" class="btn btn-outline-dark" name="writer">
+    <button id="tb" type="submit" style="width:auto; margin-left:5px; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))" class="btn btn-primary" name="writer">
         Writer
     </button>
   </form>
@@ -78,7 +79,7 @@ while($row=mysqli_fetch_assoc($result)){
 
     echo '<div class="col-sm-3" style="margin:1.5%;">
 
-    <div class="card" style="min-height:35rem;">
+    <div id="box" class="card" style="min-height:35rem;">
 
         <img src="../db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
@@ -89,7 +90,7 @@ while($row=mysqli_fetch_assoc($result)){
         // <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
 
         echo'</div>
-        <button class="btn btn-dark">
+        <button id="tb" class="btn btn-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
         <a href="berita.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
         </button>
         '?> 
@@ -100,12 +101,12 @@ while($row=mysqli_fetch_assoc($result)){
             <div style="text-align:center; margin:2%;">';
             if($_SESSION["upload"] !="upload"){
               echo'
-              <button class="btn btn-primary">
+              <button id="tb" class="btn btn-primary">
               <a href="upload.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Upload</a>
               </button>';
             }
             echo'
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button id="tb" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Hapus
           </button>
           </div>

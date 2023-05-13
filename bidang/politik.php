@@ -31,18 +31,19 @@
 <div style="width:100%;">
 <br>
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
-<h1 style="text-align:center; padding: 13% 0 5% 0; font-weight:bold;">Berita Politik</h1>
+<h1 style="text-align:center; padding: 5% 0 5% 0; font-weight:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>Berita Politik</h1>
 <div class="row" style="justify-content:center; margin:0;">
 <?php
 while($row=mysqli_fetch_assoc($result)){
     echo '<div class="col-sm-3" style="margin-right:1.5vw;">
-    <div class="card" style="min-height:35rem;">
+    <div id="box" class="card" style="min-height:35rem;">
         <img src="../db/'.$row["Gambar"].'" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
         <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
         </div>
-        <button class="btn btn-dark">
+        <button id="tb" class="btn btn-dark">
         <a href="show.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
         </button>
         '?> 

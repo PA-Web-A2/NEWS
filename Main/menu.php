@@ -68,9 +68,10 @@ if (isset($_POST['sorting'])) {
 
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
 
-<h1 style="text-align:center; padding: 13% 0 5% 0; font-weight:bold;">SEMUA BERITA</h1>
+<h1 style="text-align:center; padding: 8% 0 3% 0; font-weight:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+>SEMUA BERITA</h1>
 <div class="container-fluid">
-  <button type="button" style="margin:0 0 0 10%; width:auto;" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button id="tb" type="button" style="margin:0 0 0 10%; width:auto; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Sorting
   </button>
 
@@ -92,7 +93,8 @@ if (isset($_POST['sorting'])) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" name="save">Save changes</button>
+            <button id="tb" type="submit" class="btn btn-primary" name="save" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))"
+            >Save changes</button>
           </div>
         </form>
       </div>
@@ -108,7 +110,7 @@ while($row=mysqli_fetch_assoc($results)){
 
     echo '<div class="col-sm-3" style="margin:1.5%;">
 
-    <div class="card" style="min-height:35rem;">
+    <div id="box" class="card" style="min-height:35rem;">
 
         <img src="../db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
@@ -119,7 +121,7 @@ while($row=mysqli_fetch_assoc($results)){
         <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 3, 30)).'</h6>
 
         </div>
-        <button class="btn btn-dark">
+        <button id="tb" class="btn btn-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
         <a href="berita.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
         </button>
         '?> 

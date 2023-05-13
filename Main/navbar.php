@@ -23,7 +23,7 @@
 </head>
 <body>
   <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );" >
           <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">
               <img src="../assets/Image/icon.png" style="width:180px;" alt="">
@@ -37,7 +37,7 @@
                   <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="../Main/menu.php">Berita</a>
+                  <a style="color: white;" class="nav-link active" href="../Main/menu.php">Berita</a>
                 </li>
                   <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
