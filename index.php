@@ -192,7 +192,13 @@
         <br>
         dari seluruh dunia.</h6>
         <br>
-        <button class="btn btn-primary"><a href="sign/login.php" style="padding-top: 3%; text-decoration: none; color: white; font-weight: 100;">Join Now</a></button>
+        <?php
+        if($user!=''){
+          echo '<button class="btn btn-primary" disabled><a href="sign/login.php" style="padding-top: 3%; text-decoration: none; color: white; font-weight: 100;">Join Now</a></button>
+          ';
+        }else{
+          echo '<button class="btn btn-primary"><a href="sign/login.php" style="padding-top: 3%; text-decoration: none; color: white; font-weight: 100;">Join Now</a></button>'; }
+        ?>
       </div>
     </div>
 </div>
@@ -238,7 +244,7 @@
     </div>
   </div>
   <br>
-<div style="text-align: left;">
+<div style="text-align: left;" class="bg-light">
   <h1 class="jdl">DUNIA OLAHRAGA</h1>
 </div>
 
@@ -378,7 +384,7 @@ crossorigin="anonymous"></script>
   var nav =document.querySelector('nav');
   var btn =document.querySelector('button');
   window.addEventListener('scroll',function(){
-    if(window.pageYOffset > 100){
+    if(window.pageYOffset > 300){
       nav.classList.remove('bg-dark','navbar-dark','btn-outline-light');
       nav.classList.add('bg-light','navbar-light','btn-outline-dark');
       btn.classList.remove('btn-outline-light');

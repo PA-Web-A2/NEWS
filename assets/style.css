@@ -38,7 +38,7 @@ body{
   z-index: 1;
 }
  .footers{
-  background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));
+  /* background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189)); */
   padding:5vh 0px 0px 0vw;
   font-family: 'Play', sans-serif;
   text-align:left;
