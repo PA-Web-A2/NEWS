@@ -48,14 +48,8 @@
 <body>
 
   <header>
-      <div class="jumbotron bg-dark">
-          <img src="assets/Image/logo.png" style="width: 120px;" alt="">
-           <h1 class="text-center">
-             ALL NEWS FOR YOU
-           </h1> 
-            <h5 class="text-center">ALL WE GIVE ARE THE BEST FOR YOUR EXPERIENCE</h5>
-      </div> 
-      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+
+      <nav class="navbar border fixed-top navbar-expand-lg" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
 
           <div class="container-fluid">
 
@@ -65,11 +59,11 @@
 
             </a> -->
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
 
-            </button>
+            </button> -->
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
 
@@ -124,11 +118,9 @@
                   </li>';
                 }
                 ?>
-              <div class="collapse navbar-collapse" style="justify-content:right;">
-              </div>
               <li class="nav-item">
                 <form class="d-flex" method="post">
-                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:450px;" onkeyup="search()">
+                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;" onkeyup="search()">
                   <div>
                     <ul class="dropdown-menu" id="searchDropdown">
                     <li class="dropdown-item">
@@ -136,13 +128,13 @@
                     </li>
                     </ul>
                   </div>  
-                  <!-- <button name="cari" class="btn btn-outline-light" type="submit">Search</button> -->
+                  <button name="cari" class="btn btn-outline-light" type="submit">Search</button>
                 </form>
               </li>
               </ul>
-              
+
               <div class="collapse navbar-collapse" style="justify-content:right;">
-                <ul class="navbar-nav">
+              <ul class="navbar-nav">
 
                 <?php
 
@@ -175,45 +167,15 @@
         </nav>
 
 </header>
-<div style="height: 100%; background-image: url('assets/image/bg5.png'); background-size: cover;">
-    <div id="menu" class="cardintro">
-        <h2 style="color: white;" id="salam">
-            <?php
-              $nama=$user;
-              echo "SELAMAT DATANG ". strtoupper($nama) ;
-            ?>
-        </h2>
-        <!-- <p>Selamat datang di Coffeeshop kami! Kami bangga menjadi bagian dari komunitas kopi yang semakin berkembang, 
-            dan selalu berusaha untuk memberikan pengalaman kopi yang luar biasa untuk pelanggan kami.</p> -->
-    <button class="btn btn-dark">
-        <a href="#berita" style="text-decoration: none; color: rgb(255, 255, 255);">Read Now</a>
-    </button>
-    </div>
-</div>
-<div id="news" style="height: 100vh;">
-    <div class="container-fluid">
-      <img src="assets/Image/berita.jpg" alt="" style="width: 60%; float: left; padding: 5% 0 0 5%;">
-      <div style="color: black; float: right; padding: 10% 0 0 0; font-size: larger; font-weight: bold">
-        Selamat datang di situs OUR NEWS!
-        <br>
-        <h5>Kami dengan senang hati menyambut Anda sebagai 
-        <br>
-        pembaca setia yang cerdas dan berpengetahuan. 
-        <br>
-        Di sini, Anda akan menemukan berita terkini dan
-        <br>
-        terpercaya yang mencakup berbagai topik 
-        <br>
-        dari seluruh dunia.<h5>
-        <br>
-        <button class="btn btn-primary"><a href="sign/login.php" style="padding-top: 3%; text-decoration: none; color: white; font-weight: 100;">Join Now</a></button>
-      </div>
-    </div>
-</div>
-
-<div id="berita" class="container-fluid" style="width:100%; height:100%; text-align:center;">
+<!-- <video autoplay loop muted style="width:100%">
+  <source src="assets/Image/bg.mp4">
+</video> -->
+<!-- <div>
+  <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
+</div> -->
+<div class="container-fluid" style="width:100%; height:100%; text-align:center; background-color: lightgrey;">
   <div style="padding-top:10%; padding-bottom:10%;">
-    <h1> SEPUTAR <span class="slb"> SELEBRITY </span></h1>
+    <h1><span class="slb"> SEPUTAR SELEBRITY </span></h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -284,7 +246,7 @@
       <!-- Konten aside disini -->
       <div class="list-group" >
         <a href="#" id="tb" class="list-group-item list-group-item-action active" aria-current="true" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
-          All Topic
+          All Item
         </a>
         <a href="Bidang/politik.php" id="tb" class="list-group-item list-group-item-action">Politik</a>
         <a href="Bidang/artis.php" id="tb" class="list-group-item list-group-item-action">Selebritas</a>
@@ -293,23 +255,8 @@
         <a href="Bidang/international.php" id="tb" class="list-group-item list-group-item-action">International</a>
         <!-- <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a> -->
       </div>
-      <br>
-      <div class="list-group" >
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
-          All NEWS
-        </a>
-        <?php
-        $berita =  mysqli_query($conn,"SELECT * FROM berita ORDER BY ID_Berita ASC LIMIT 10;");
-        while($row=mysqli_fetch_assoc($berita)){
-          echo'
-            <a href="Main/berita.php?judul='.$row["Judul"].'" class="list-group-item list-group-item-action">'.$row["Judul"].'</a>';
-        }
-        ?>
-      </div>
   </div>
 </div>
-
-<br>
 
 <div class="container-fluid" style="width:100%;">
 
@@ -393,13 +340,13 @@ crossorigin="anonymous"></script>
   var btn =document.querySelector('button');
   window.addEventListener('scroll',function(){
     if(window.pageYOffset > 100){
-      nav.classList.remove('bg-dark','navbar-dark','btn-outline-light');
+      nav.classList.remove('bg-dark','navbar-dark');
       nav.classList.add('bg-light','navbar-light','btn-outline-dark');
       btn.classList.remove('btn-outline-light');
       btn.classList.add('btn-outline-dark');
     }else{
-      nav.classList.remove('bg-light','navbar-light');
-      nav.classList.add('bg-dark','navbar-dark');
+      nav.classList.remove('bg-light','navbar-light','btn-outline-dark');
+      nav.classList.add('bg-dark','navbar-dark','btn-outline-light');
       btn.classList.remove('btn-outline-dark');
       btn.classList.add('btn-outline-light');
     }
