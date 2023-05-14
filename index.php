@@ -182,7 +182,7 @@
       <div style="color: white; float: right; padding: 10% 5% 0 0; font-size: larger; font-weight: bold">
         Selamat datang di situs OUR NEWS!
         <br>
-        <h6>Kami dengan senang hati menyambut Anda sebagai 
+        <h6>Kami dengan Senang hati menyambut Anda sebagai 
         <br>
         pembaca setia yang cerdas dan berpengetahuan. 
         <br>
