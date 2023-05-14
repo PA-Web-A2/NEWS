@@ -173,9 +173,9 @@
 <!-- <div>
   <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
 </div> -->
-<div class="container-fluid" style="width:100%; height:100%; text-align:center;">
+<div class="container-fluid" style="width:100%; height:100%; text-align:center; background-color: lightgrey;">
   <div style="padding-top:10%; padding-bottom:10%;">
-    <h1> SEPUTAR <span class="slb"> SELEBRITY </span></h1>
+    <h1><span class="slb"> SEPUTAR SELEBRITY </span></h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

@@ -62,13 +62,13 @@ if (isset($_POST['sorting'])) {
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
   crossorigin="anonymous"></script>
 
-<div style="width:100%;">
+<div style="width:100%; background-color:lightgrey;">
 
 <br>
 
 <!-- <img src="assets/Image/img1.jpg" style="width: 100%; margin-top:5%;" alt=""> -->
 
-<h1 style="text-align:center; padding: 8% 0 3% 0; font-weight:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
+<h1 class="slb" style="text-align:center; padding: 8% 0 3% 0; font-weight:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
 >SEMUA BERITA</h1>
 <div class="container-fluid">
   <button id="tb" type="button" style="margin:0 0 0 10%; width:auto; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
