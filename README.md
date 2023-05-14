@@ -1,11 +1,14 @@
 # Tutorial Penggunaan Website OUR NEWS
 Pada website berita ini tersedia 3 role dimana setiap role mempunyai akses masing-masing terhadap database yang disediakan.
 - Role User
+<br>
 Yang pertama ada role user. 
 Role ini menggambarkan kita sebagai pembaca dan dapat mengakses hal-hal umum pada berita seperti kolom komentar, kolom penilaian dan sebagainya. 
 - Role Writer
+<br>
 Lalu ada role writer dimana dia adalah role yang memiliki fungsi sebagai penulis berita. Berita yang ia tulis akan masuk ke dalam kelompok tersendiri yang nantinya akan di filter oleh admin untuk di upload. Pada role ini dia berhak untuk membuat, mengedit hingga menghapus berita yang dia tulis. 
 - Role Admin
+<br>
 Dan terakhir adalah role admin dimana ia berfungsi menjaga segala konten yang ada pada website ini, seperti mengupload konten yang ditulis oleh writer, mengelola komentar dan sebagainya.
 
 Dibawahini adalah tutorial penggunaan website untuk setiap role:
