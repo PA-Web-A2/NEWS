@@ -166,55 +166,51 @@ crossorigin="anonymous">
     <h1 style="text-align:center; margin:5% 0 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: solid underline rgb(48, 48, 162)  6px;"
     >Tambah Data</h1>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <div class="table-responsive">
+          <table class="table table-light table-striped">
+          <form action="" method="POST" enctype="multipart/form-data">
+            <tbody>
+              <tr>
+                <th scope="row">Gambar</th>
+                <td>:</td>
+                <td><input type="file" name="gambar" accept=".gif,.jpg,.jpeg,.png"></td>
+              </tr>
+              <tr>
+                <th scope="row">Judul</th>
+                <td>:</td>
+                <td><input type="text" name="judul"></td>
+              </tr>
+              <tr>
+                <th scope="row">Jenis</th>
+                <td>:</td>
+                <td>
+                <select name="jenis">
 
-        <input type="file" name="gambar" accept=".gif,.jpg,.jpeg,.png">
+                <option value="international">International</option>
 
-        <br>
+                <option value="politik">Politik</option>
 
-        Judul
+                <option value="olahraga">Olahraga</option>
 
-        <input type="text" name="judul">
-        <br>
-	    Jenis
-        <select name="jenis">
+                <option value="artis">Artis</option>
 
-            <option value="international">International</option>
+                <option value="bisnis">Bisnis</option>    
 
-            <option value="politik">Politik</option>
-
-            <option value="olahraga">Olahraga</option>
-
-            <option value="artis">Artis</option>
-
-            <option value="bisnis">Bisnis</option>    
-
-        </select>
-
-
-        <!-- <br>
-
-        Tanggal
-
-        <input type="date" name="tanggal"> -->
-
-        <br>
-
-        Isi
-
-        <!-- <div id="editor" >
-            </div> -->
-        <textarea name="isi" style="width:100%;" rows="40" id="editor"></textarea>
-
-
-        <br>
-
+                </select>
+            </td>
+              </tr>
+              <tr>
+                <th scope="row">Isi Berita</th>
+                <td>:</td>
+                <td><textarea name="isi" style="width:100%;" rows="40" id="editor"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right; background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );"
         >Upload</button>
 
         <!-- <button type="submit" name="tambah">Tambah</button> -->
-
-    </form>
 
 <?php }?>
 
@@ -227,62 +223,20 @@ crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
 
 <footer>
-
-  <div class="footers container-fluid" style="padding-left:50px; padding-bottom:10%;">
-
-    <div class="row justify-content-center">
-
-      <div class="col-sm-5">
-
-        <img src="../assets/Image/icon.png" style="width:250px;" alt="">
-
-        <br>
-
-        <a style="font-size:medium;">Puji syukur kita panjatkan Kehadirat Tuhan Yang Maha Esa sehubungan dengan telah berfungsinya Website Kejaksaan Tinggi Balikpapan yang merupakan salah satu langkah upaya penerapan teknologi informasi menuju reformasi birokrasi kejaksaan untuk Indonesia lebih maju.</a>
-
-      </div>
-
-      <div class="col-md-3">
-
-        <h6 style="font-weight: bold; font-size:larger;">Kontak Kami</h6>
-
-        <ul class="social-icons">
-
-          <li><a class="instagram" href="https://www.instagram.com/kejari.balikpapan/"><i class="fa fa-instagram"></i></a></li>
-
-          <li><a class="twitter" href="https://twitter.com/KN_Balikpapan"><i class="fa fa-twitter"></i></a></li>
-
-          <li><a class="facebook" href=" https://www.facebook.com/kejari.balikpapan/?_rdc=1&_rdr"><i class="fa fa-facebook"></i></a></li>
-
-          <li><a class="youtube" href="https://www.youtube.com/@kejari.balikpapan848"><i class="fa fa-youtube"></i></a></li>   
-
-        </ul>
-
-      </div>
-
-      <div class="col-md-3">
-
-        <h6 style="font-weight: bold; font-size:larger;">Alamat</h6>
-
-        <ul class="footer-links">
-
-          <li><a href="https://goo.gl/maps/HHyHtfyVDYx34YFi8" style="text-decoration:none; color:black;"> Jln.Jendral Sudirman No.70 Kota Balikpapan, Kalimantan Timur</a></li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="footers fixed-bottom">
+  <a href="#"><i class="fa fa-facebook"></i></a>
+  <a href="#"><i class="fa fa-instagram"></i></a>
+  <a href="#"><i class="fa fa-youtube"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <div class="cp">ENJOY YOUR NEWS</div>
+</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
-crossorigin="anonymous"></script> 
+crossorigin="anonymous"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 <script>
     ClassicEditor

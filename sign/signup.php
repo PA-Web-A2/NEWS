@@ -20,7 +20,14 @@
               $_SESSION['role'] = $selectedOption; 
 
             }
-            $query = "INSERT INTO admin VALUES('', '$username' , '$password','$selectedOption')";
+            if(isset($_POST['gender'])) { 
+
+              $selectedgender = $_POST['gender']; 
+
+              // $_SESSION[''] = $selectedOption; 
+
+            }
+            $query = "INSERT INTO admin VALUES('', '$username' , '$password','$selectedOption','','$selectedgender')";
 
             if (mysqli_query($conn, $query)) {
 
@@ -114,9 +121,9 @@
 
   <div class="row g-6">
 
-    <div class="col-md-4">
+    <div class="col-md-4" style="padding-top:13%;">
 
-      <img src="../assets/Image/iconic.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="../assets/Image/logo.png" class="img-fluid rounded-start" alt="...">
 
     </div>
 
@@ -150,6 +157,13 @@
           <option value="admin">Admin</option>
           <option value="writer">Writer</option>
           <option value="user">User</option>
+          </select>
+        </div>
+        <div class="input-group mb-2">
+          <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+          <select name="gender" class="form-select" id="inputGroupSelect01">
+          <option value="pria">Pria</option>
+          <option value="perempuan">Perempuan</option>
           </select>
         </div>
         

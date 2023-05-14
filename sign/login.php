@@ -131,9 +131,9 @@
 
   <div class="row g-6">
 
-    <div class="col-md-4">
+    <div class="col-md-4" style="padding-top:7%;">
 
-      <img src="../assets/Image/iconic.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="../assets/Image/logo.png" class="img-fluid rounded-start" alt="...">
 
     </div>
 

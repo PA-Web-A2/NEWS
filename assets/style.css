@@ -3,9 +3,9 @@
   font-family: "Dicoding Font";
   src: url('FILE-FONT.TTF');
 }
+
 *{
   scroll-behavior: smooth;
-  margin: 0;
 }
 
 body{
@@ -14,11 +14,29 @@ body{
     text-align: justify;
     margin: 0;
     padding: 0;
+    background-color: black;
+    /* position: fixed; */
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
  }
  h2,h3{
     color:black;
  }
 
+.nav2 {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  /* z-index: 2; */
+}
+
+.nav1 {
+  position: relative;
+  z-index: 1;
+}
  .footers{
   background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));
   padding:5vh 0px 0px 0vw;
@@ -91,7 +109,8 @@ body{
   padding: 3%;
 }
 .cardintro{
-  /* padding: 20% 50% 20% 5%; */
+  padding: 20% 0% 20% 0%;
+  align-items:center ;
   text-align: center;
   font-size:x-large;
   /* background-color: white; */
@@ -105,11 +124,11 @@ body{
   color: rgb(0, 0, 0);
 }
 .jumbotron{
-  padding: 5px;
-  background-color: black;
-  text-align:left;
-  font-size: 20px;
+  text-align:center;
+  font-size: 16px;
   color: white;
+  margin: 0;
+  padding:1%;
 }
 nav li{
   display: inline;
@@ -366,11 +385,22 @@ header.scrolled nav div ul li a{
 #searchDropdown {
   position: absolute;
   top: 100%;
-  left: 0;
-  z-index: 999;
+  left: 22%;
+  z-index: 888;
   display: none;
-  width: 100%;
+  width: 70%;
 }
+
+@media (max-width: 767px) {
+  /* Atur tata letak untuk ukuran perangkat seperti hp */
+  #searchDropdown {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+  }
+}
+
 
 #searchDropdown li {
   margin-bottom: 5px; 

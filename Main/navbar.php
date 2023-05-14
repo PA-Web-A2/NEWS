@@ -34,13 +34,13 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a style="color: white;" class="nav-link" aria-current="page" href="../index.php">Beranda</a>
+                  <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
                 </li>
                 <li class="nav-item">
-                  <a style="color: white;" class="nav-link" href="../Main/menu.php">Berita</a>
+                  <a style="color: white;" class="nav-link active" href="../Main/menu.php">Berita</a>
                 </li>
                   <li class="nav-item dropdown">
-                  <a style="color: white;" class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Bidang
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

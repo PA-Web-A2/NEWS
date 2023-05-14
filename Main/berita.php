@@ -115,18 +115,45 @@ while($row=mysqli_fetch_assoc($result)){
 </div>
 
 <aside>
-
+<div class="card">
+  <?php
+  $idx = mysqli_query($conn, "SELECT*FROM artikel WHERE ID_Berita='$berita'");
+  // echo $user;
+  while($row=mysqli_fetch_assoc($idx)){
+    $id = $row["ID_Admin"];
+    $akun = mysqli_query($conn, "SELECT*FROM admin WHERE ID_Admin='$id'");
+    while($row=mysqli_fetch_assoc($akun)){
+    echo '<div class="card-header">
+            <h5>Profile</h5>
+          </div>
+          <div class="card-body">
+          <table>
+          <tr><img src="../profile/'.$row["Gambar"].'" style="width:200px;"></img></tr>
+          <tr>
+            <td>Username</td>
+            <td>:</td>
+            <td>'.$row["Username"].'</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>'.$row["Gender"].'</td>
+          </tr>
+          </table>
+          </div>';
+      }}
+    // }
+  ?>
+</div>
 <div style="padding: 3%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
 
     <div class="input-group mb-3">
     <form action="" method="post">
       <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:350px;" onkeyup="search()">
-      <div>
-        <ul class="dropdown-menu" id="searchDropdown">
+      <div class="dropdown-menu" id="searchDropdown">
         <li class="dropdown-item">
           <a href="berita.php?judul=${results[i]}">${results[i].judul}</a>
         </li>
-        </ul>
       </div>  
       <button id="tb" class="btn btn-outline-secondary" type="button" id="button-addon1" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));">Search</button>
     </form>

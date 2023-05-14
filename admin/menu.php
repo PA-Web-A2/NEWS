@@ -90,7 +90,7 @@ while($row=mysqli_fetch_assoc($result)){
         // <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
 
         echo'</div>
-        <button id="tb" class="btn btn-dark">
+        <button id="tb" class="btn btn-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
         <a href="berita.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
         </button>
         '?> 

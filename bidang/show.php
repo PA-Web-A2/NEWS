@@ -210,6 +210,20 @@ while($row=mysqli_fetch_assoc($result)){
 
 <div class="card" >
 
+<<<<<<< HEAD
+  <div class="list-group" >
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+          All Item
+        </a>
+        <a href="Bidang/politik.php" class="list-group-item list-group-item-action">Politik</a>
+        <a href="Bidang/artis.php" class="list-group-item list-group-item-action">Selebritas</a>
+        <a href="Bidang/olahraga.php" class="list-group-item list-group-item-action">Olahraga</a>
+        <a href="Bidang/bisnis.php" class="list-group-item list-group-item-action">Bisnis</a>
+        <a href="Bidang/international.php" class="list-group-item list-group-item-action">International</a>
+        <!-- <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a> -->
+  </div>
+
+=======
   <div id="tb" class="card-header">
 
     Berita Terbaru
@@ -226,6 +240,7 @@ while($row=mysqli_fetch_assoc($result)){
 
   </ul>
 
+>>>>>>> refs/remotes/origin/master
 </div>
 
 </aside>
