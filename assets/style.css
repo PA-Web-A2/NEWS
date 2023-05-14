@@ -473,6 +473,7 @@ header.scrolled nav div ul li a{
   margin: 20px 0 30px;
   position: relative;
   text-transform: uppercase;
+  /* color: black; */
 }
 .jdl::after{
   content: '';

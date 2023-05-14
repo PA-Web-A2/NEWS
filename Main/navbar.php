@@ -44,11 +44,11 @@
                     Bidang
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="politik.php">Politik</a></li>
-                    <li><a class="dropdown-item" href="olahraga.php">Olahraga</a></li>
-                    <li><a class="dropdown-item" href="artis.php">Artis</a></li>
-                    <li><a class="dropdown-item" href="international.php">International</a></li>
-                    <li><a class="dropdown-item" href="bisnis.php">Bisnis</a></li>
+                    <li><a class="dropdown-item" href="../bidang/politik.php">Politik</a></li>
+                    <li><a class="dropdown-item" href="../bidang/olahraga.php">Olahraga</a></li>
+                    <li><a class="dropdown-item" href="../bidang/artis.php">Artis</a></li>
+                    <li><a class="dropdown-item" href="../bidang/international.php">International</a></li>
+                    <li><a class="dropdown-item" href="../bidang/bisnis.php">Bisnis</a></li>
                   </ul>
                 </li>
               </ul>

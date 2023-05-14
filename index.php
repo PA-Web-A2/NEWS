@@ -48,12 +48,15 @@
 <body>
 
   <header>
-      <div class="jumbotron bg-dark">
+      <div class="jumbotron bg-dark" style="height: 100%; background-image: url('assets/image/bg5.png'); background-size:cover;">
           <img src="assets/Image/logo.png" style="width: 120px;" alt="">
            <h1 class="text-center">
              ALL NEWS FOR YOU
            </h1> 
             <h5 class="text-center">ALL WE GIVE ARE THE BEST FOR YOUR EXPERIENCE</h5>
+            <button class="btn btn-dark">
+                <a href="#berita" style="text-decoration: none; color: rgb(255, 255, 255);">Read Now</a>
+            </button>
       </div> 
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 
@@ -124,11 +127,9 @@
                   </li>';
                 }
                 ?>
-              <div class="collapse navbar-collapse" style="justify-content:right;">
-              </div>
               <li class="nav-item">
                 <form class="d-flex" method="post">
-                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:450px;" onkeyup="search()">
+                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:350px;" onkeyup="search()">
                   <div>
                     <ul class="dropdown-menu" id="searchDropdown">
                     <li class="dropdown-item">
@@ -175,28 +176,13 @@
         </nav>
 
 </header>
-<div style="height: 100%; background-image: url('assets/image/bg5.png'); background-size: cover;">
-    <div id="menu" class="cardintro">
-        <h2 style="color: white;" id="salam">
-            <?php
-              $nama=$user;
-              echo "SELAMAT DATANG ". strtoupper($nama) ;
-            ?>
-        </h2>
-        <!-- <p>Selamat datang di Coffeeshop kami! Kami bangga menjadi bagian dari komunitas kopi yang semakin berkembang, 
-            dan selalu berusaha untuk memberikan pengalaman kopi yang luar biasa untuk pelanggan kami.</p> -->
-    <button class="btn btn-dark">
-        <a href="#berita" style="text-decoration: none; color: rgb(255, 255, 255);">Read Now</a>
-    </button>
-    </div>
-</div>
-<div id="news" style="height: 100vh;">
+<div id="news" style="height: 100vh;" class="bg-dark">
     <div class="container-fluid">
       <img src="assets/Image/berita.jpg" alt="" style="width: 60%; float: left; padding: 5% 0 0 5%;">
-      <div style="color: black; float: right; padding: 10% 0 0 0; font-size: larger; font-weight: bold">
+      <div style="color: white; float: right; padding: 10% 5% 0 0; font-size: larger; font-weight: bold">
         Selamat datang di situs OUR NEWS!
         <br>
-        <h5>Kami dengan senang hati menyambut Anda sebagai 
+        <h6>Kami dengan senang hati menyambut Anda sebagai 
         <br>
         pembaca setia yang cerdas dan berpengetahuan. 
         <br>
@@ -204,16 +190,16 @@
         <br>
         terpercaya yang mencakup berbagai topik 
         <br>
-        dari seluruh dunia.<h5>
+        dari seluruh dunia.</h6>
         <br>
         <button class="btn btn-primary"><a href="sign/login.php" style="padding-top: 3%; text-decoration: none; color: white; font-weight: 100;">Join Now</a></button>
       </div>
     </div>
 </div>
 
-<div id="berita" class="container-fluid" style="width:100%; height:100%; text-align:center;">
-  <div style="padding-top:10%; padding-bottom:10%;">
-    <h1> SEPUTAR <span class="slb"> SELEBRITY </span></h1>
+<div id="berita" class="container-fluid bg-dark" style="color:white; width:100%; height:100%; text-align:center;">
+  <div style="padding-top:10%; padding-bottom:10%;" class="bg-light">
+    <h1 style="color:black;"> SEPUTAR <span class="slb"> SELEBRITY </span></h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -252,11 +238,11 @@
     </div>
   </div>
   <br>
-  <div style="text-align: left;">
+<div style="text-align: left;">
   <h1 class="jdl">DUNIA OLAHRAGA</h1>
 </div>
 
-<div class="row" style="width:100%; justify-content:center;" >
+<div class="row" style="padding:5%; justify-content:center;" >
   <div class="sport col-8">
     <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
@@ -311,13 +297,13 @@
 
 <br>
 
-<div class="container-fluid" style="width:100%;">
+<div class="container-fluid bg-light" style="width:100%; padding:5%;">
 
 <div>
-  <h1 class="jdl">POLITIK</h1>
+  <h1 class="jdl" style="color:black;">POLITIK</h1>
 </div>
 
-<div class="row" style="justify-content:center; margin:0;">
+<div class="row" style="justify-content:center; margin:0; color:black;">
 
 <?php
 
@@ -376,11 +362,11 @@ if($i<3){
 
 <footer>
 <div class="footers">
-  <a href="#"><i class="fa fa-facebook"></i></a>
-  <a href="#"><i class="fa fa-instagram"></i></a>
-  <a href="#"><i class="fa fa-youtube"></i></a>
-  <a href="#"><i class="fa fa-twitter"></i></a>
-  <div class="cp">ENJOY YOUR NEWS</div>
+  <a href="#"><i class="fa fa-facebook" style="color:white;"></i></a>
+  <a href="#"><i class="fa fa-instagram" style="color:white;"></i></a>
+  <a href="#"><i class="fa fa-youtube" style="color:white;"></i></a>
+  <a href="#"><i class="fa fa-twitter" style="color:white;"></i></a>
+  <div class="cp" style="color:white;">ENJOY YOUR NEWS</div>
 </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
