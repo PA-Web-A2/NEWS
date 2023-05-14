@@ -48,12 +48,15 @@
 <body>
 
   <header>
-      <div class="jumbotron bg-dark">
+      <div class="jumbotron bg-dark" style="height: 100%; background-image: url('assets/image/bg5.png'); background-size:cover;">
           <img src="assets/Image/logo.png" style="width: 120px;" alt="">
            <h1 class="text-center">
              ALL NEWS FOR YOU
            </h1> 
             <h5 class="text-center">ALL WE GIVE ARE THE BEST FOR YOUR EXPERIENCE</h5>
+            <button class="btn btn-dark">
+                <a href="#berita" style="text-decoration: none; color: rgb(255, 255, 255);">Read Now</a>
+            </button>
       </div> 
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 
@@ -124,11 +127,9 @@
                   </li>';
                 }
                 ?>
-              <div class="collapse navbar-collapse" style="justify-content:right;">
-              </div>
               <li class="nav-item">
                 <form class="d-flex" method="post">
-                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:450px;" onkeyup="search()">
+                  <input id="searchField" autocomplete="off" name="data" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:350px;" onkeyup="search()">
                   <div>
                     <ul class="dropdown-menu" id="searchDropdown">
                     <li class="dropdown-item">
@@ -181,7 +182,7 @@
 <!-- <div>
   <img src="assets/Image/bg5.png" class="img-fluid" alt="..." style="width:100%;">
 </div> -->
-<div class="container-fluid" style="width:100%; height:100%; text-align:center; background-color:lightgrey;">
+<div class="container-fluid" style="width:100%; height:100%; text-align:center;">
   <div style="padding-top:10%; padding-bottom:10%;">
     <h1><span class="slb"> SEPUTAR SELEBRITY </span></h1>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -222,11 +223,11 @@
     </div>
   </div>
   <br>
-  <div style="text-align: left;">
+<div style="text-align: left;">
   <h1 class="jdl">DUNIA OLAHRAGA</h1>
 </div>
 
-<div class="row" style="width:100%; justify-content:center;" >
+<div class="row" style="padding:5%; justify-content:center;" >
   <div class="sport col-8">
     <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
@@ -281,13 +282,13 @@
 
 <br>
 
-<div class="container-fluid" style="width:100%;">
+<div class="container-fluid bg-light" style="width:100%; padding:5%;">
 
 <div>
-  <h1 class="jdl">POLITIK</h1>
+  <h1 class="jdl" style="color:black;">POLITIK</h1>
 </div>
 
-<div class="row" style="justify-content:center; margin:0;">
+<div class="row" style="justify-content:center; margin:0; color:black;">
 
 <?php
 
@@ -346,11 +347,11 @@ if($i<3){
 
 <footer>
 <div class="footers">
-  <a href="#"><i class="fa fa-facebook"></i></a>
-  <a href="#"><i class="fa fa-instagram"></i></a>
-  <a href="#"><i class="fa fa-youtube"></i></a>
-  <a href="#"><i class="fa fa-twitter"></i></a>
-  <div class="cp">ENJOY YOUR NEWS</div>
+  <a href="#"><i class="fa fa-facebook" style="color:white;"></i></a>
+  <a href="#"><i class="fa fa-instagram" style="color:white;"></i></a>
+  <a href="#"><i class="fa fa-youtube" style="color:white;"></i></a>
+  <a href="#"><i class="fa fa-twitter" style="color:white;"></i></a>
+  <div class="cp" style="color:white;">ENJOY YOUR NEWS</div>
 </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
