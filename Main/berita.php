@@ -262,7 +262,7 @@ if($_SESSION["user"] == 'user'){
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
 
 <footer>
-<div class="footers">
+<div class="footers" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));">
   <a href="#"><i class="fa fa-facebook"></i></a>
   <a href="#"><i class="fa fa-instagram"></i></a>
   <a href="#"><i class="fa fa-youtube"></i></a>

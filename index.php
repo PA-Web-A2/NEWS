@@ -244,11 +244,11 @@
     </div>
   </div>
   <br>
-<div style="text-align: left;" class="bg-light">
-  <h1 class="jdl">DUNIA OLAHRAGA</h1>
-</div>
-
-<div class="row" style="padding:5%; justify-content:center;" >
+  
+  <div class="row" style="padding:5%; justify-content:center;" >
+  <div style="text-align: left; color:white;">
+    <h1 class="jdl1">DUNIA OLAHRAGA</h1>
+  </div>
   <div class="sport col-8">
     <?php 
     $card =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'olahraga' ORDER BY ID_Berita DESC LIMIT 3;");
@@ -367,7 +367,7 @@ if($i<3){
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
 
 <footer>
-<div class="footers">
+<div class="footers bg-dark">
   <a href="#"><i class="fa fa-facebook" style="color:white;"></i></a>
   <a href="#"><i class="fa fa-instagram" style="color:white;"></i></a>
   <a href="#"><i class="fa fa-youtube" style="color:white;"></i></a>

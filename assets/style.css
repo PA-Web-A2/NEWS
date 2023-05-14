@@ -38,7 +38,6 @@ body{
   z-index: 1;
 }
  .footers{
-  /* background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189)); */
   padding:5vh 0px 0px 0vw;
   font-family: 'Play', sans-serif;
   text-align:left;
@@ -486,6 +485,31 @@ header.scrolled nav div ul li a{
   /* color: black; */
 }
 .jdl::after{
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+.jdl1{
+  background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );
+  background-size: cover;
+  background-clip: text;
+  background-image: url(https://media.suara.com/pictures/970x544/2019/09/02/35325-langit.jpg);
+  -webkit-background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  list-style: none;
+  display: inline-block;
+  margin: 20px 0 30px;
+  position: relative;
+  text-transform: uppercase;
+  /* color: black; */
+}
+.jdl1::after{
   content: '';
   height: 3px;
   width: 100%;
