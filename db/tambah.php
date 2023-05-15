@@ -110,6 +110,12 @@
 rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
 
 crossorigin="anonymous">
+<script>
+        function filterSimbol(input) {
+            var regex = /[^\w\s]/gi;
+            input.value = input.value.replace(regex, '');
+        }
+</script>
 
 </head>
 
@@ -178,7 +184,7 @@ crossorigin="anonymous">
               <tr>
                 <th scope="row">Judul</th>
                 <td>:</td>
-                <td><input type="text" name="judul"></td>
+                <td><input type="text" name="judul" onkeyup="filterSimbol(this)"></td>
               </tr>
               <tr>
                 <th scope="row">Jenis</th>
@@ -206,9 +212,9 @@ crossorigin="anonymous">
               </tr>
             </tbody>
           </table>
+          <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right; background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );"
+          >Upload</button>
         </div>
-        <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; float:right; background: linear-gradient(90deg, rgb(48, 48, 162), rgb(93, 93, 189) );"
-        >Upload</button>
 
         <!-- <button type="submit" name="tambah">Tambah</button> -->
 
@@ -223,7 +229,7 @@ crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
 
 <footer>
-<div class="footers fixed-bottom">
+<div class="footers" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189));">
   <a href="#"><i class="fa fa-facebook"></i></a>
   <a href="#"><i class="fa fa-instagram"></i></a>
   <a href="#"><i class="fa fa-youtube"></i></a>
@@ -240,7 +246,7 @@ crossorigin="anonymous"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#editor' ) )
+        .create( document.querySelector( '#editor' ))
         .catch( error => {
             console.error( error );
         } );

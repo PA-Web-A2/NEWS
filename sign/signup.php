@@ -27,20 +27,49 @@
               // $_SESSION[''] = $selectedOption; 
 
             }
-            $query = "INSERT INTO admin VALUES('', '$username' , '$password','$selectedOption','','$selectedgender')";
+            if($username != ""){
+              if($password != "" ){
 
-            if (mysqli_query($conn, $query)) {
-
-                echo "Akun berhasil ditambah.";
-
+                $query = "INSERT INTO admin VALUES('', '$username' , '$password','$selectedOption','','$selectedgender')";
+    
+                if (mysqli_query($conn, $query)) {
+    
+                    echo "Akun berhasil ditambah.";
+    
+                }else{
+                  echo "<script>
+    
+                  alert('Akun Sudah Ada');
+      
+                  document.location.href='login.php';    
+      
+                  </script>";
+                }
+                echo "<script>
+    
+                alert('Berhasil');
+    
+                document.location.href='login.php';    
+    
+                </script>";
+              }else{
+                echo "<script>
+    
+                alert('Password Dilarang Kosong');
+    
+                document.location.href='login.php';    
+    
+                </script>";
+              }
+            }else{
+              echo "<script>
+  
+              alert('Username Dilarang Kosong');
+  
+              document.location.href='login.php';    
+  
+              </script>";
             }
-            echo "<script>
-
-            alert('Berhasil');
-
-            document.location.href='login.php';    
-
-            </script>";
 
       }
 
@@ -67,6 +96,12 @@
   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
 
   crossorigin="anonymous">
+  <script>
+        function filterSimbol(input) {
+            var regex = /[^\w\s]/gi;
+            input.value = input.value.replace(regex, '');
+        }
+    </script>
 
 </head>
 
@@ -139,7 +174,7 @@
 
           <label for="exampleInputEmail1" class="form-label">Username</label>
 
-          <input type="text" name="nama" class="form-control" >
+          <input type="text" name="nama" class="form-control" onkeyup="filterSimbol(this)">
           
           <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
 

@@ -38,7 +38,7 @@ body{
   z-index: 1;
 }
  .footers{
-  padding:5vh 0px 0px 0vw;
+  padding:5vh 0px 0px 10px;
   font-family: 'Play', sans-serif;
   text-align:left;
   box-shadow: 10px 0 0 0 rgba(0, 0, 0, 0.2);

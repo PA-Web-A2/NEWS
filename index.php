@@ -9,7 +9,6 @@
     $user = '';
 }
 
-
   require "db/koneksi.php";
 
   $result =  mysqli_query($conn,"SELECT * FROM berita WHERE Jenis = 'politik' ORDER BY ID_Berita DESC LIMIT 3;");
@@ -262,7 +261,7 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title"><a href="Main/berita.php?judul='.$row["Judul"].'" style="text-decoration:None; color:black;">'.$row["Judul"].'</a></h5>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-muted">'.$row["Tanggal"].'</small></p>
             </div>
           </div>
         </div>
@@ -321,7 +320,7 @@ if($i<3){
 
   echo '<div class="col-sm-3">
 
-    <div id="box" class="card" style="min-height:15rem;">
+    <div id="box" class="card" style="min-height:25rem;">
 
       <img src="db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 

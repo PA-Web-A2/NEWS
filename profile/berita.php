@@ -92,13 +92,13 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
 
             </div>
 
-            <div class="collapse navbar-collapse" style="justify-content:right;">
+            <div class="collapse navbar-collapse navbar-light" style="justify-content:right;">
 
             <ul class="navbar-nav">
 
               <li class="nav-item">
 
-                    <a class="nav-link active" aria-current="page" href="../db/tambah.php">Create</a>
+                    <a class="nav-link active" aria-current="page" href="../db/tambah.php" style="color:white;">Create</a>
 
                 </li>
 
