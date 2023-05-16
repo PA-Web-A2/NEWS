@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="../assets/style.css">
 
   <script src="https://kit.fontawesome.com/5c90e171df.js" crossorigin="anonymous"></script>
-
+  <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
 
   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
@@ -23,87 +24,40 @@
   crossorigin="anonymous">
 
 </head>
+<?php 
+  session_start();
+  if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+  } else {
+      // handling ketika $_SESSION['user'] belum di-set
+      $user = '';
+  }
+  if($_SESSION['user'] != 'admin' ){
+
+    header('location:../index.php');
+
+}else{
+?>
 
 <body>
 
   <header>
-
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
-
-          <div class="container-fluid">
-
-            <a class="navbar-brand" href="#">
-
-              <!-- <img src="../assets/Image/icon.png" style="width:180px;" alt=""> -->
-
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-
-              <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-weight:bold;">
-
-              <ul class="navbar-nav">
-
-                <li class="nav-item">
-
-                  <a style="color: white;" class="nav-link" aria-current="page" href="../index.php">Beranda</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                  <a style="color: white;" class="nav-link active" href="menu.php">Berita</a>
-
-                </li>
-
-                <li class="nav-item dropdown">
-
-                  <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                    Bidang
-
-                  </a>
-
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" href="../bidang/pembinaan.php">Pembinaan</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/intelijen.php">Intelijen</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/umum.php">Tindak Pidana Umum</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/khusus.php">Tindak Pidanan Khusus</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/perdata.php">Perdata dan Tata Usaha</a></li>
-
-                  </ul>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-        </nav>
+    <?php include 'navbar.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+  crossorigin="anonymous"></script>
+  <div style="width:100%; background-color:lightgrey;">
 
   </header>
 
   <?php
-
-    session_start();
 
     require "../db/koneksi.php";
 
     if (isset($_GET['judul'])) {
 
     $judul = $_GET['judul'];
-    if($_SESSION["upload"]="upload"){
+    if($_SESSION["upload"]=="upload"){
       $result = mysqli_query($conn,"SELECT*FROM berita WHERE Judul ='$judul'");
     }else{
       $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Judul ='$judul'");
@@ -255,32 +209,50 @@ while($row=mysqli_fetch_assoc($result)){
     </form>
     </div>
     <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Komentar</h3>
-    <div>
-      <form action="komen.php" method="POST">
-        <textarea name="komentar" id="" rows="10" style="width:100%;"></textarea>
-        <div class="modal-footer">
-        <button id="tb" class="btn btn-success" type="submit" name="tambah" style="margin:10px; background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );"
-        >Upload</button>
-      </div>
-      </form>
-    </div>
     <?php
     // echo $user;
     // if (mysqli_num_rows($result) >= 0) {
     while($row=mysqli_fetch_assoc($komen)){
-    echo '<div class="card">
-          <div class="card-header">
+      echo '
+      <div class="card">
+          <div class="card-header" id="card-'.$row["ID_komen"].'">
             '.$row["Nama"].'
           </div>
           <div class="card-body">
             <p class="card-text">'.$row["Isi"].'</p>
           </div>
-          </div>';
+          <div class="modal-footer">
+          <button id="tb" type="button" class="btn btn-danger" onclick="confirmDelete('.$row["ID_komen"].')">
+            Hapus
+          </button>
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script>
+            function confirmDelete(id) {
+              Swal.fire({
+                title: "Konfirmasi",
+                text: "Apakah Anda yakin ingin menghapus?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = "komen.php?ID=" +id;
+                }
+              });
+            }
+            </script>
+            </div>
+        </div>
+          ';
         }
       // }
   ?>
   </div>
 <?php 
+}
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -304,7 +276,7 @@ while($row=mysqli_fetch_assoc($result)){
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
 crossorigin="anonymous"></script>
-
+<script src="sweetalert2.all.min.js"></script>
 </body>
 
 </html>

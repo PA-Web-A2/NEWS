@@ -21,8 +21,6 @@
 
         $judul = $_POST["judul"];
 
-        $tanggal = $_POST["tanggal"];
-
         $isi = $_POST["isi"];
 
         $target_dir = "uploads/";
@@ -75,13 +73,18 @@
 
         }
 
-        echo "<script>
-
-            alert('Berhasil');
-
-            document.location.href='../index.php';    
-
-        </script>";
+        echo "<body><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Berhasil Menambah Berita',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(() => {
+            window.location.href = '../index.php';
+        });
+        </script></body>";
 
     }
 
@@ -104,6 +107,8 @@
 <link rel="stylesheet" href="../assets/style.css">
 
 <script src="https://kit.fontawesome.com/5c90e171df.js" crossorigin="anonymous"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
 
@@ -251,5 +256,6 @@ crossorigin="anonymous"></script>
             console.error( error );
         } );
 </script>
+<script src="sweetalert2.all.min.js"></script>
 </body>
 </html>

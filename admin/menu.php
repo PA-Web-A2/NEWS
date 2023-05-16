@@ -11,12 +11,12 @@ require "../db/koneksi.php";
 
 if (isset($_POST['upload'])) {
   $_SESSION["upload"]="upload";
-  $result = mysqli_query($conn,"SELECT*FROM berita ORDER BY ID_Berita ASC");
+  $result = mysqli_query($conn,"SELECT*FROM berita");
 }else if(isset($_POST['writer'])){
-  $result = mysqli_query($conn,"SELECT*FROM artikel ORDER BY ID_Berita ASC");
+  $result = mysqli_query($conn,"SELECT*FROM artikel");
   $_SESSION["upload"]="";
 }else{
-  $result = mysqli_query($conn,"SELECT*FROM berita ORDER BY ID_Berita ASC");
+  $result = mysqli_query($conn,"SELECT*FROM berita");
   $_SESSION["upload"]="upload";
 }
 
@@ -38,7 +38,9 @@ if (isset($_POST['upload'])) {
   <link rel="stylesheet" href="../assets/style.css">
 
   <script src="https://kit.fontawesome.com/5c90e171df.js" crossorigin="anonymous"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
 
   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
@@ -46,6 +48,14 @@ if (isset($_POST['upload'])) {
   crossorigin="anonymous">
 
 </head>
+
+<?php 
+  if($user != 'admin' ){
+
+    header('location:../index.php');
+
+}else{
+?>
 
 <body>
 
@@ -72,7 +82,6 @@ crossorigin="anonymous"></script>
         Writer
     </button>
   </form>
-
 <?php
 
 while($row=mysqli_fetch_assoc($result)){
@@ -89,58 +98,103 @@ while($row=mysqli_fetch_assoc($result)){
 
         // <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 0, 30)).'</h6>
 
-        echo'</div>
-        <button id="tb" class="btn btn-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
-        <a href="berita.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
-        </button>
-        '?> 
-        <?php
-        if($_SESSION["user"]=="admin"){
-
-            echo'
-            <div style="text-align:center; margin:2%;">';
-            if($_SESSION["upload"] !="upload"){
-              echo'
-              <button id="tb" class="btn btn-primary">
-              <a href="upload.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Upload</a>
-              </button>';
-            }
-            echo'
-            <button id="tb" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Hapus
-          </button>
-          </div>
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Apakah anda yakin ingin menghapus
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                  <button class="btn btn-danger">
-
-                  <a href="hapus.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Hapus</a>
-      
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>';
-            }
         echo'
+        </div>
+        <button id="tb" class="btn btn-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">
+          <a href="berita.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Baca Selengkapnya</a>
+        </button>
+        ';
+        echo '
+        <div style="text-align:center; margin:2%;">
+        ';
+        if ($_SESSION["upload"] != "upload") {
+        echo '
+        <button id="tb" class="btn btn-primary" onclick="confirmUpload(\''.$row["Judul"].'\')">
+        Upload
+        </button>
+        <button id="tb" type="button" class="btn btn-danger" onclick="confirmDelete(\''.$row["Judul"].'\')">
+          Hapus
+        </button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+          function confirmDelete(judul) {
+            Swal.fire({
+              title: "Konfirmasi",
+              text: "Apakah Anda yakin ingin menghapus?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#d33",
+              cancelButtonColor: "#3085d6",
+              confirmButtonText: "Hapus",
+              cancelButtonText: "Batal"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Lakukan aksi penghapusan di sini, seperti mengarahkan ke halaman hapus.php dengan judul sebagai parameter
+                window.location.href = "hapus.php?judul=" + judul;
+              }
+            });
+          }
+          function confirmUpload(judul) {
+            Swal.fire({
+              title: "Konfirmasi",
+              text: "Apakah Anda yakin ingin mengupload konten ini?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "primary",
+              cancelButtonColor: "warning",
+              confirmButtonText: "Upload",
+              cancelButtonText: "Batal"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "upload.php?judul=" + judul;
+              }
+            });
+          }          
+        </script>
+        ';
+        }else{
+        echo '
+        <button id="tb" type="button" class="btn btn-danger" onclick="confirmDelete(\''.$row["Judul"].'\')">
+          Hapus
+        </button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+          function confirmDelete(judul) {
+            Swal.fire({
+              title: "Konfirmasi",
+              text: "Apakah Anda yakin ingin menghapus?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#d33",
+              cancelButtonColor: "#3085d6",
+              confirmButtonText: "Hapus",
+              cancelButtonText: "Batal"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Lakukan aksi penghapusan di sini, seperti mengarahkan ke halaman hapus.php dengan judul sebagai parameter
+                window.location.href = "../db/hapus.php?judul=" + judul;
+              }
+            });
+          }
+        </script>
+        ';
+        }
+        echo '
+            ';
+        echo '
         </div>
         </div>';
 }
 ?>
 
+
 </div>
 
 </div>
+
+<?php }?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -162,7 +216,8 @@ while($row=mysqli_fetch_assoc($result)){
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 
 crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
 </body>
 
 </html>

@@ -1,31 +1,17 @@
 <?php
-
-    session_start();
-
-    require "../db/koneksi.php";
-    if (isset($_SESSION['user']) && ($_SESSION['user'] === "writer" OR $_SESSION['user'] === "admin")) {
-    if (isset($_GET['judul'])) {
-      $judul = $_GET['judul'];    
-      $result = mysqli_query($conn,"SELECT*FROM artikel WHERE Judul ='$judul'");
+require "../db/koneksi.php";
+session_start();
+// Cek apakah pengguna memiliki session "user" dan nilainya adalah "admin"
+if (isset($_SESSION['user']) && ($_SESSION['user'] === "writer" OR $_SESSION['user'] === "admin")) {
+    if (isset($_GET['ID'])) {
+        $ID = $_GET['ID'];
+        $query = "DELETE FROM komentar WHERE ID_komen = '$ID'";
+        mysqli_query($conn, $query);
     }
-    $username = $_SESSION['username'];
-    while($row=mysqli_fetch_assoc($result)){
-    $newjudul = $row["Judul"];
-
-    $jenis = $row["Jenis"];
-
-    $gambar = $row["Gambar"];
-
-    $tanggal = $row["Waktu"];
-
-    $isi = $row["Isi"];
-    
-    $query = "INSERT INTO berita VALUES('', '$username' ,'$jenis','$gambar', '$newjudul', '$tanggal', '$isi')";
-    mysqli_query($conn, $query);
-  }} else {
+} else {
     // Jika session "user" bukan "admin", maka arahkan pengguna ke halaman lain atau tampilkan pesan error
     echo "<script>
-    window.location.href = '../index.php';
+    window.location.href = 'menu.php';
     </script>";
 }
 ?>
@@ -42,7 +28,7 @@
     <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
     <script>
     Swal.fire({
-        title: "Sukses menambah",
+        title: "Sukses menghapus",
         icon: "success",
         showConfirmButton: false,
         timer: 1500
@@ -53,4 +39,3 @@
     <script src="sweetalert2.all.min.js"></script>
 </body>
 </html>
-

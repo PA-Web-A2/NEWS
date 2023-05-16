@@ -23,7 +23,7 @@
 </head>
 <body>
   <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );" >
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );" >
           <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">
               <img src="../assets/Image/icon.png" style="width:180px;" alt="">

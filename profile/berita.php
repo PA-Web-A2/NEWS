@@ -34,6 +34,14 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
 
 </head>
 
+<?php 
+  if($user != 'writer' ){
+
+    header('location:../index.php');
+
+}else{
+?>
+
 <body>
 
   <header>
@@ -60,7 +68,7 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
 
                 <li class="nav-item">
 
-                  <a style="color: white;" class="nav-link active" href="#">Berita</a>
+                  <a style="color: white;" class="nav-link active" href="../Main/menu.php">Berita</a>
 
                 </li>
 
@@ -73,17 +81,11 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
                   </a>
 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" href="../bidang/pembinaan.php">Pembinaan</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/intelijen.php">Intelijen</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/umum.php">Tindak Pidana Umum</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/khusus.php">Tindak Pidanan Khusus</a></li>
-
-                    <li><a class="dropdown-item" href="../bidang/perdata.php">Perdata dan Tata Usaha</a></li>
-
+                    <li><a class="dropdown-item" href="../bidang/politik.php">Politik</a></li>
+                    <li><a class="dropdown-item" href="../bidang/olahraga.php">Olahraga</a></li>
+                    <li><a class="dropdown-item" href="../bidang/artis.php">Artis</a></li>
+                    <li><a class="dropdown-item" href="../bidang/international.php">International</a></li>
+                    <li><a class="dropdown-item" href="../bidang/bisnis.php">Bisnis</a></li>
                   </ul>
 
                 </li>
@@ -181,10 +183,10 @@ $result = mysqli_query($conn,"SELECT*FROM artikel WHERE ID_Admin='$username'");
         ';
       }
       echo'<br>
-      <button type="button" style="margin:0 0 0 0; width:auto;" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" style="margin:0 0 0 0; width:auto;" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
         Ganti
       </button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -244,31 +246,29 @@ while($row=mysqli_fetch_assoc($result)){
               <button id="tb" class="btn btn-primary">
               <a href="../db/edit.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Edit</a>
               </button>
-              <button id="tb" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Hapus
-            </button>
-            </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Apakah anda yakin ingin menghapus
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button class="btn btn-danger">
-
-                    <a href="../admin/hapus.php?judul='.$row["Judul"].'"style="text-decoration:None; color:white;">Hapus</a>
-        
-                    </button>
-                  </div>
-                </div>
+              <button id="tb" type="button" class="btn btn-danger" onclick="confirmDelete(\''.$row["Judul"].'\')">
+                Hapus
+              </button>
               </div>
-            </div>';
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+                function confirmDelete(judul) {
+                  Swal.fire({
+                    title: "Konfirmasi",
+                    text: "Apakah Anda yakin ingin menghapus?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Hapus",
+                    cancelButtonText: "Batal"
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../admin/hapus.php?judul=" + judul;
+                    }
+                  });
+                }
+              </script>';
         echo'
         </div>
         </div>';
@@ -278,6 +278,8 @@ while($row=mysqli_fetch_assoc($result)){
 </div>
 
 </div>
+<?php
+}?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 

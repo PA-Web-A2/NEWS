@@ -23,7 +23,7 @@
 </head>
 <body>
   <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189) );">
           <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">
               <img src="../assets/Image/icon.png" style="width:180px;" alt="">
@@ -39,7 +39,7 @@
                 <li class="nav-item">
                   <a style="color: white;" class="nav-link" href="../Main/menu.php">Berita</a>
                 </li>
-                  <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                   <a style="color: white;" class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Bidang
                   </a>
@@ -50,6 +50,9 @@
                     <li><a class="dropdown-item" href="../bidang/international.php">International</a></li>
                     <li><a class="dropdown-item" href="../bidang/bisnis.php">Bisnis</a></li>
                   </ul>
+                </li>
+                <li class="nav-item">
+                  <a style="color: white;" class="nav-link" aria-current="page" href="menu.php">Manage</a>
                 </li>
               </ul>
             </div>
