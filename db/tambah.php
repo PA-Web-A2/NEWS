@@ -18,10 +18,41 @@
             $jenis = $_POST["jenis"];
 
           }
-
+        
         $judul = $_POST["judul"];
+        if (empty($judul)) {
+            echo "<body><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: 'Mohon isi Judul Berita',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = '../index.php';
+            });
+            </script></body>";
+            exit;
+        }
 
         $isi = $_POST["isi"];
+
+        if (empty($isi)) {
+            echo "<body><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: 'Mohon isi Berita',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = '../index.php';
+            });
+            </script></body>";
+            exit;
+        }
 
         $target_dir = "uploads/";
 
@@ -34,11 +65,19 @@
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 
         && $imageFileType != "gif" ) {
-
-            echo "Hanya file gambar yang diperbolehkan.";
-
+            echo "<body><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: 'Mohon isi Gambar Berita',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = '../index.php';
+            });
+            </script></body>";
             exit;
-
         }
 
         
@@ -72,7 +111,6 @@
             echo "Terjadi kesalahan saat mengunggah gambar.";
 
         }
-
         echo "<body><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
         Swal.fire({
@@ -85,6 +123,7 @@
             window.location.href = '../index.php';
         });
         </script></body>";
+
 
     }
 
