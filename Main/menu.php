@@ -110,15 +110,13 @@ while($row=mysqli_fetch_assoc($results)){
 
     echo '<div class="col-sm-3" style="margin:1.5%;">
 
-    <div id="box" class="card" style="min-height:35rem;">
+    <div id="box" class="card" style="min-height:30rem;">
 
         <img src="../db/'.$row["Gambar"].'" class="card-img-top" alt="...">
 
         <div class="card-body">
 
         <h5 class="card-title text-center" id="nama">'.$row["Judul"].'</h5>
-
-        <h6 class="card-title text-left" id="harga">'.implode(' ', array_slice(str_word_count($row["Isi"], 1), 3, 30)).'</h6>
 
         </div>
         <button id="tb" class="btn btn-dark" style="background: -webkit-linear-gradient(right, rgb(48, 48, 162), rgb(93, 93, 189))">

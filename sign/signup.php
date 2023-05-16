@@ -1,77 +1,88 @@
 <?php
 
-      session_start();
+  session_start();
 
-      $_SESSION['username']="";
+  $_SESSION['username']="";
 
-      require "../db/koneksi.php";
+  require "../db/koneksi.php";
 
+  if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
+    // Pengguna sudah login, alihkan ke halaman yang sesuai
+    if ($_SESSION['user'] == "admin") {
+        header('Location: ../admin/menu.php');
+    } else if ($_SESSION['user'] == "writer") {
+        header('Location: ../profile/berita.php');
+    } else if ($_SESSION['user'] == "user") {
+        header('Location: ../index.php');
+    }
+    exit;
+}
+  
+    if(isset($_POST['submit'])) {
 
-        if(isset($_POST['submit'])) {
+        $username = $_POST['nama'];
 
-            $username = $_POST['nama'];
+        $password = $_POST['password'];
 
-            $password = $_POST['password'];
+        if(isset($_POST['role'])) { 
 
-            if(isset($_POST['role'])) { 
+          $selectedOption = $_POST['role']; 
 
-              $selectedOption = $_POST['role']; 
+          $_SESSION['role'] = $selectedOption; 
 
-              $_SESSION['role'] = $selectedOption; 
+        }
+        if(isset($_POST['gender'])) { 
 
-            }
-            if(isset($_POST['gender'])) { 
+          $selectedgender = $_POST['gender']; 
 
-              $selectedgender = $_POST['gender']; 
+          // $_SESSION[''] = $selectedOption; 
 
-              // $_SESSION[''] = $selectedOption; 
+        }
+        if($username != ""){
+          if($password != "" ){
 
-            }
-            if($username != ""){
-              if($password != "" ){
+            $query = "INSERT INTO admin VALUES('', '$username' , '$password','$selectedOption','','$selectedgender')";
 
-                $query = "INSERT INTO admin VALUES('', '$username' , '$password','$selectedOption','','$selectedgender')";
-    
-                if (mysqli_query($conn, $query)) {
-    
-                    echo "Akun berhasil ditambah.";
-    
-                }else{
-                  echo "<script>
-    
-                  alert('Akun Sudah Ada');
-      
-                  document.location.href='login.php';    
-      
-                  </script>";
-                }
-                echo "<script>
-    
-                alert('Berhasil');
-    
-                document.location.href='login.php';    
-    
-                </script>";
-              }else{
-                echo "<script>
-    
-                alert('Password Dilarang Kosong');
-    
-                document.location.href='login.php';    
-    
-                </script>";
-              }
+            if (mysqli_query($conn, $query)) {
+
+                echo "Akun berhasil ditambah.";
+
             }else{
               echo "<script>
-  
-              alert('Username Dilarang Kosong');
+
+              alert('Akun Sudah Ada');
   
               document.location.href='login.php';    
   
               </script>";
             }
+            echo "<script>
 
-      }
+            alert('Berhasil');
+
+            document.location.href='login.php';    
+
+            </script>";
+          }else{
+            echo "<script>
+
+            alert('Password Dilarang Kosong');
+
+            document.location.href='login.php';    
+
+            </script>";
+          }
+        }else{
+          echo "<script>
+
+          alert('Username Dilarang Kosong');
+
+          document.location.href='login.php';    
+
+          </script>";
+        }
+
+  }
 
       ?>
 

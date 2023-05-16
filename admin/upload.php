@@ -21,7 +21,14 @@
     $isi = $row["Isi"];
     
     $query = "INSERT INTO berita VALUES('', '$username' ,'$jenis','$gambar', '$newjudul', '$tanggal', '$isi')";
-    mysqli_query($conn, $query);
+    if(mysqli_query($conn, $query)){
+
+    }else{
+        echo "<script>
+        alert('Berita dengan Judul ini sudah ada');
+        window.location.href = '../index.php';
+        </script>";
+    }
   }} else {
     // Jika session "user" bukan "admin", maka arahkan pengguna ke halaman lain atau tampilkan pesan error
     echo "<script>
@@ -42,7 +49,7 @@
     <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
     <script>
     Swal.fire({
-        title: "Sukses menambah",
+        title: "Sukses mengupload",
         icon: "success",
         showConfirmButton: false,
         timer: 1500

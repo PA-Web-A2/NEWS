@@ -1,56 +1,46 @@
 <?php
 
-      session_start();
+session_start();
 
-      $_SESSION['username']="";
+if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
+    // Pengguna sudah login, alihkan ke halaman yang sesuai
+    if ($_SESSION['user'] == "admin") {
+        header('Location: ../admin/menu.php');
+    } else if ($_SESSION['user'] == "writer") {
+        header('Location: ../profile/berita.php');
+    } else if ($_SESSION['user'] == "user") {
+        header('Location: ../index.php');
+    }
+    exit;
+}
 
-      require "../db/koneksi.php";
+require "../db/koneksi.php";
 
+if (isset($_POST['submit'])) {
+    $username = $_POST['nama'];
+    $password = $_POST['password'];
 
+    $result = mysqli_query($conn, "SELECT * FROM admin WHERE Username = '$username' AND Pass = '$password'");
 
-      $result = mysqli_query($conn,"SELECT*FROM admin");
-
-      while($row=mysqli_fetch_assoc($result)){
-
-        if(isset($_POST['submit'])) {
-
-            $username = $_POST['nama'];
-
-            $password = $_POST['password'];
-
-            if(isset($_POST['role'])) { 
-
-              $selectedOption = $_POST['role']; 
-
-              $_SESSION['role'] = $selectedOption; 
-
-            }
-
-            if($username == $row["Username"] && $password == $row["Pass"]){
-              if($row["Role"]=="admin"){
-                $_SESSION['username'] = $row["ID_Admin"];
-
-                $_SESSION['user'] = $row["Role"];
-  
-                header('Location: ../admin/menu.php');
-              }else if($row["Role"]=="writer"){
-                $_SESSION['username'] = $row["ID_Admin"];
-  
-                $_SESSION['user'] = $row["Role"];
-  
-                header('Location: ../profile/berita.php');
-              }else if ($row["Role"] == "user") {
-                $_SESSION['username'] = $row["ID_Admin"];
-                $_SESSION['user'] = $row["Role"];
-                header('Location: ../index.php');
-            }
-            
-            }
-          }
-          
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if ($row["Role"] == "admin") {
+            $_SESSION['username'] = $row["ID_Admin"];
+            $_SESSION['user'] = $row["Role"];
+            header('Location: ../admin/menu.php');
+        } else if ($row["Role"] == "writer") {
+            $_SESSION['username'] = $row["ID_Admin"];
+            $_SESSION['user'] = $row["Role"];
+            header('Location: ../profile/berita.php');
+        } else if ($row["Role"] == "user") {
+            $_SESSION['username'] = $row["ID_Admin"];
+            $_SESSION['user'] = $row["Role"];
+            header('Location: ../index.php');
         }
-
-      ?>
+        exit;
+    }
+}
+?>
 
 <!DOCTYPE html>
 
